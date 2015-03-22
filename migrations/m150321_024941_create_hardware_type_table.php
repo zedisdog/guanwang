@@ -5,7 +5,7 @@ use yii\db\Migration;
 
 class m150321_024941_create_hardware_type_table extends Migration{
     public function up(){
-        $this->createTable('hardware_type', [
+        $this->createTable('blue_hardware_type', [
             'id' => 'pk',
             'title' => Schema::TYPE_STRING . ' NOT NULL',
             'create_time' => Schema::TYPE_DATETIME.' NOT NULL',
@@ -14,8 +14,8 @@ class m150321_024941_create_hardware_type_table extends Migration{
     }
 
     public function down(){
-        $this->dropTable('hardware_type');
-        echo "drop table m150321_024941_create_hardware_type_table.\n";
+        $this->dropTable('blue_hardware_type');
+        echo "drop table m150321_024941_create_hardware_type_table susscefully.\n";
 
         return true;
     }

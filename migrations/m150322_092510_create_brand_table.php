@@ -3,21 +3,19 @@
 use yii\db\Schema;
 use yii\db\Migration;
 
-class m150321_024902_create_software_table extends Migration{
+class m150322_092510_create_brand_table extends Migration{
     public function up(){
-        $this->createTable('blue_software', [
+        $this->createTable('blue_brand', [
             'id' => 'pk',
             'title' => Schema::TYPE_STRING . ' NOT NULL',
-            'price' => Schema::TYPE_STRING.' NOT NULL',         //价格
-            'content' => Schema::TYPE_TEXT.' NOT NULL',         //描述
             'create_time' => Schema::TYPE_DATETIME.' NOT NULL',
             'update_time' => Schema::TYPE_DATETIME.' NOT NULL',
         ]);
     }
 
     public function down(){
-        $this->dropTable('blue_software');
-        echo "drop table m150321_024902_create_software_table susscefully.\n";
+        $this->dropTable('blue_brand');
+        echo "drop table m150322_092510_create_brand_table susscefully.\n";
 
         return true;
     }
