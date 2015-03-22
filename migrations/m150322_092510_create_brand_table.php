@@ -5,18 +5,16 @@ use yii\db\Migration;
 
 class m150322_092510_create_brand_table extends Migration{
     public function up(){
-        $this->createTable('blue_brand', [
+        $this->createTable(Yii::$app->db->tablePrefix.'brand', [
             'id' => 'pk',
             'title' => Schema::TYPE_STRING . ' NOT NULL',
-            'create_time' => Schema::TYPE_DATETIME.' NOT NULL',
-            'update_time' => Schema::TYPE_DATETIME.' NOT NULL',
+            'create_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT CURRENT_TIMESTAMP',
+            'update_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT CURRENT_TIMESTAMP',
         ]);
     }
 
     public function down(){
-        $this->dropTable('blue_brand');
-        echo "drop table m150322_092510_create_brand_table susscefully.\n";
-
+        $this->dropTable(Yii::$app->db->tablePrefix.'brand');
         return true;
     }
 

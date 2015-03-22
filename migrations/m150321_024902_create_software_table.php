@@ -5,20 +5,18 @@ use yii\db\Migration;
 
 class m150321_024902_create_software_table extends Migration{
     public function up(){
-        $this->createTable('blue_software', [
+        $this->createTable(Yii::$app->db->tablePrefix.'software', [
             'id' => 'pk',
             'title' => Schema::TYPE_STRING . ' NOT NULL',
             'price' => Schema::TYPE_STRING.' NOT NULL',         //价格
             'content' => Schema::TYPE_TEXT.' NOT NULL',         //描述
-            'create_time' => Schema::TYPE_DATETIME.' NOT NULL',
-            'update_time' => Schema::TYPE_DATETIME.' NOT NULL',
+            'create_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT CURRENT_TIMESTAMP',
+            'update_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT CURRENT_TIMESTAMP',
         ]);
     }
 
     public function down(){
-        $this->dropTable('blue_software');
-        echo "drop table m150321_024902_create_software_table susscefully.\n";
-
+        $this->dropTable(Yii::$app->db->tablePrefix.'software');
         return true;
     }
 
