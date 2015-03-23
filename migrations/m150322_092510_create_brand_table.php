@@ -1,4 +1,7 @@
 <?php
+/**
+ * 硬件产品商标表
+ */
 
 use yii\db\Schema;
 use yii\db\Migration;

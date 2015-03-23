@@ -1,25 +1,24 @@
 <?php
 /**
- * 硬件产品属于商标的型号表
+ * 软件系统增强日志表
  */
 
 use yii\db\Schema;
 use yii\db\Migration;
 
-class m150322_093114_create_brand_model_table extends Migration{
+class m150323_065951_create_enhance_table extends Migration{
     public function up(){
-        $this->createTable(Yii::$app->db->tablePrefix.'brand_model', [
+        $this->createTable(Yii::$app->db->tablePrefix.'enhance', [
             'id' => 'pk',
-            'brand_id' => Schema::TYPE_INTEGER.' NOT NULL',
-            'title' => Schema::TYPE_STRING . ' NOT NULL',
+            'software_id' => Schema::TYPE_INTEGER.' NOT NULL',                              //软件产品id
+            'content' => Schema::TYPE_STRING.' NOT NULL',
             'create_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT CURRENT_TIMESTAMP',
             'update_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT CURRENT_TIMESTAMP',
         ]);
-
     }
 
     public function down(){
-        $this->dropTable(Yii::$app->db->tablePrefix.'brand_model');
+        $this->dropTable(Yii::$app->db->tablePrefix.'enhance');
         return true;
     }
 

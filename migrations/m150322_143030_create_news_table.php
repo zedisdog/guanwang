@@ -1,4 +1,7 @@
 <?php
+/**
+ * 新闻表
+ */
 
 use yii\db\Schema;
 use yii\db\Migration;

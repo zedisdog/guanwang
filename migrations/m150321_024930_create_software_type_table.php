@@ -1,4 +1,7 @@
 <?php
+/**
+ * 软件产品类型表
+ */
 
 use yii\db\Schema;
 use yii\db\Migration;
