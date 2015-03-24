@@ -1,6 +1,8 @@
 <?php
 use yii\helpers\StringHelper;
 use yii\helpers\Url;
+use yii\widgets\LinkPager;
+
 ?>
 <section class="content">
     <div class="row">
@@ -37,7 +39,11 @@ use yii\helpers\Url;
                             ';
                         }
                         ?>
-                        </tbody></table>
+                        </tbody>
+                    </table>
+                    <div class="box-footer clearfix">
+                        <?php echo LinkPager::widget(['pagination' => $pager,'options'=>['class'=>'pagination pagination-sm no-margin pull-right']]); ?>
+                    </div>
                 </div><!-- /.box-body -->
             </div><!-- /.box -->
         </div>

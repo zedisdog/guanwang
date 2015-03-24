@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\data\Pagination;
 
 /**
  * This is the model class for table "{{%article}}".
@@ -55,5 +56,12 @@ class Article extends \yii\db\ActiveRecord
             'create_time' => 'Create Time',
             'update_time' => 'Update Time',
         ];
+    }
+
+    public static function findAllByPage($pageSize=10){
+        $query = Article::find()->orderBy('id DESC');
+        $pages = new Pagination(['totalCount' => $query->count(),'pageSize'=>$pageSize]);
+        $articles = $query->offset($pages->offset)->limit($pages->limit)->all();
+        return [$articles,$pages];
     }
 }
