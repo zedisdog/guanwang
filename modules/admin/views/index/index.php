@@ -1,13 +1,6 @@
 <?php
 use yii\widgets\Breadcrumbs;
 ?>
-<!-- Content Header (Page header) -->
-<section class="content-header">
-    <h1>
-        <?php echo $this->title ?>
-    </h1>
-</section>
-
 <!-- Main content -->
 <section class="content">
     <!-- Small boxes (Stat box) -->

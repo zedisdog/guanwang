@@ -118,6 +118,11 @@ AdminAsset::register($this);
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                <?php echo $this->title ?>
+            </h1>
+        </section>
         <?php echo $content ?>
     </div><!-- /.content-wrapper -->
     <footer class="main-footer">

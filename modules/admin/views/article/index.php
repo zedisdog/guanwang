@@ -2,12 +2,6 @@
 use yii\helpers\StringHelper;
 use yii\helpers\Url;
 ?>
-<section class="content-header">
-    <h1>
-        <?php echo $this->title ?>
-    </h1>
-</section>
-
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
