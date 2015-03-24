@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Html;
 use app\assets\admin\AdminAsset;
+use yii\helpers\Url;
 
 AdminAsset::register($this);
 ?>
@@ -84,12 +85,12 @@ AdminAsset::register($this);
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
                 <li class="header"><b>菜单</b></li>
-                <li class="">
-                    <a href="#">
+                <li <?php echo Yii::$app->controller->id=='article'?'class="active"':NULL ?>>
+                    <a href="<?php echo Url::toRoute('article/index') ?>">
                         <i class="fa fa-calendar"></i> <span><b>新闻管理</b></span>
                     </a>
                 </li>
-                <li class="treeview active">
+                <li class="treeview <?php echo Yii::$app->controller->id=='hardware'?'active':NULL ?>">
                     <a href="#">
                         <i class="fa fa-dashboard"></i> <span><b>硬件产品管理</b></span> <i class="fa fa-angle-left pull-right"></i>
                     </a>
@@ -100,7 +101,7 @@ AdminAsset::register($this);
                         <li><a href="#"><i class="fa fa-circle-o"></i> 硬件产品管理</a></li>
                     </ul>
                 </li>
-                <li class="treeview">
+                <li class="treeview <?php echo Yii::$app->controller->id=='software'?'active':NULL ?>">
                     <a href="#">
                         <i class="fa fa-dashboard"></i> <span><b>软件产品管理</b></span> <i class="fa fa-angle-left pull-right"></i>
                     </a>
