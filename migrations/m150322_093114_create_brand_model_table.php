@@ -8,7 +8,7 @@ use yii\db\Migration;
 
 class m150322_093114_create_brand_model_table extends Migration{
     public function up(){
-        $this->createTable(Yii::$app->db->tablePrefix.'brand_model', [
+        $this->createTable('{{%brand_model}}', [
             'id' => 'pk',
             'brand_id' => Schema::TYPE_INTEGER.' NOT NULL',
             'title' => Schema::TYPE_STRING . ' NOT NULL',
@@ -19,7 +19,7 @@ class m150322_093114_create_brand_model_table extends Migration{
     }
 
     public function down(){
-        $this->dropTable(Yii::$app->db->tablePrefix.'brand_model');
+        $this->dropTable('{{%brand_model}}');
         return true;
     }
 

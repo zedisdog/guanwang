@@ -8,7 +8,7 @@ use yii\db\Migration;
 
 class m150323_065951_create_enhance_table extends Migration{
     public function up(){
-        $this->createTable(Yii::$app->db->tablePrefix.'enhance', [
+        $this->createTable('{{%enhance}}', [
             'id' => 'pk',
             'software_id' => Schema::TYPE_INTEGER.' NOT NULL',                              //软件产品id
             'content' => Schema::TYPE_STRING.' NOT NULL',
@@ -18,7 +18,7 @@ class m150323_065951_create_enhance_table extends Migration{
     }
 
     public function down(){
-        $this->dropTable(Yii::$app->db->tablePrefix.'enhance');
+        $this->dropTable('{{%enhance}}');
         return true;
     }
 

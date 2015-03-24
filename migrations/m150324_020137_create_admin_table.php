@@ -1,27 +1,22 @@
 <?php
-/**
- * 新闻表
- */
 
 use yii\db\Schema;
 use yii\db\Migration;
 
-class m150322_143030_create_news_table extends Migration{
+class m150324_020137_create_admin_table extends Migration{
     public function up(){
-        $this->createTable(Yii::$app->db->tablePrefix.'news', [
+        $this->createTable('{{%admin}}', [
             'id' => 'pk',
-            'title' => Schema::TYPE_STRING . ' NOT NULL',
-            'source' => Schema::TYPE_STRING,
-            'soutce_url' => Schema::TYPE_STRING,
-            'view' => Schema::TYPE_INTEGER. ' NOT NULL DEFAULT 0',
-            'content' => 'longtext NOT NULL',
+            'user_name' => Schema::TYPE_STRING.' NOT NULL',
+            'password' => Schema::TYPE_STRING.' NOT NULL',
             'create_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT CURRENT_TIMESTAMP',
             'update_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT CURRENT_TIMESTAMP',
+            'last_login' => Schema::TYPE_TIMESTAMP,
         ]);
     }
 
     public function down(){
-        $this->dropTable(Yii::$app->db->tablePrefix.'news');
+        $this->dropTable('{{%admin}}');
         return true;
     }
 
