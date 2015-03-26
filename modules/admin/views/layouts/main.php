@@ -90,14 +90,17 @@ AdminAsset::register($this);
                         <i class="fa fa-calendar"></i> <span><b>新闻管理</b></span>
                     </a>
                 </li>
-                <li class="treeview <?php echo Yii::$app->controller->id=='hardware'?'active':NULL ?>">
+                <li class="treeview <?php echo Yii::$app->controller->id=='hardware' ||
+                                               Yii::$app->controller->id=='brand' ||
+                                               Yii::$app->controller->id=='brand-model' ||
+                                               Yii::$app->controller->id=='hardware-type'?'active':NULL ?>">
                     <a href="#">
                         <i class="fa fa-dashboard"></i> <span><b>硬件产品管理</b></span> <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li class="active"><a href="#"><i class="fa fa-circle-o"></i> 硬件产品品牌管理</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i> 硬件产品型号管理</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i> 硬件产品分类管理</a></li>
+                        <li <?php echo Yii::$app->controller->id=='brand'?'class="active"':NULL ?>><a href="<?php echo Url::toRoute('brand/index') ?>"><i class="fa fa-circle-o"></i> 硬件产品品牌管理</a></li>
+                        <li <?php echo Yii::$app->controller->id=='brand-model'?'class="active"':NULL ?>><a href="<?php echo Url::toRoute('brand-model/index') ?>"><i class="fa fa-circle-o"></i> 硬件产品型号管理</a></li>
+                        <li <?php echo Yii::$app->controller->id=='hardware-type'?'class="active"':NULL ?>><a href="<?php echo Url::toRoute('hardware-type/index') ?>"><i class="fa fa-circle-o"></i> 硬件产品分类管理</a></li>
                         <li><a href="#"><i class="fa fa-circle-o"></i> 硬件产品管理</a></li>
                     </ul>
                 </li>

@@ -8,7 +8,7 @@ EditAsset::register($this);
         <div class="col-md-12">
             <div class="box">
                 <div class="box-header">
-                    <?php echo $item->id?'编辑':'添加' ?>文章
+                    <?php echo $item->id?'编辑':'添加' ?>型号
                 </div>
                 <form action="<?php echo $ajaxUrl ?>" method="post" rel="<?php echo $redirectUrl ?>">
                     <div class="box-body">
@@ -19,18 +19,15 @@ EditAsset::register($this);
                             <label style="font-weight: normal;color:red" class="error-msg"></label>
                         </div>
                         <div class="form-group">
-                            <label>来源</label>
-                            <input name="source" type="text" class="form-control" value="<?php echo $item->source ?>" placeholder="">
-                            <label style="font-weight: normal;color:red" class="error-msg"></label>
-                        </div>
-                        <div class="form-group">
-                            <label>来源URL</label>
-                            <input name="source_url" type="text" class="form-control" value="<?php echo $item->source_url ?>" placeholder="">
-                            <label style="font-weight: normal;color:red" class="error-msg"></label>
-                        </div>
-                        <div class="form-group">
-                            <label>内容</label>
-                            <textarea id="content" name="content"><?php echo $item->content ?></textarea>
+                            <label>Select</label>
+                            <select name="brand_id" class="form-control">
+                                <option value="">-选择型号-</option>
+                                <?php
+                                foreach($brands as $brand){
+                                    echo '<option value="'.$brand->id.'">'.$brand->title.'</option>';
+                                }
+                                ?>
+                            </select>
                             <label style="font-weight: normal;color:red" class="error-msg"></label>
                         </div>
                     </div>

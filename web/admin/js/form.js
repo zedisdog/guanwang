@@ -1,7 +1,9 @@
 $(document).ready(function(){
     $('input[type="submit"]').click(function(){
         if(check()){
-            editor.sync();
+            if(typeof editor != 'undefined'){
+                editor.sync();
+            }
             form = $('form').eq(0);
             $.ajax({
                 type:'post',
@@ -33,14 +35,19 @@ $(document).ready(function(){
             $('input').blur(function(){
                 check();
             });
+            $('select').change(function(){
+                check();
+            });
         }
         return false;
     });
 });
 
 var check = function(){
+    if(typeof editor != 'undefined'){
+        editor.sync();
+    }
     var flag = false;
-    editor.sync();
     var form = $('form').eq(0);
     var url = form.attr('action').replace('-save','-validate');
     $.ajax({

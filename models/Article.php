@@ -58,13 +58,24 @@ class Article extends \yii\db\ActiveRecord
         ];
     }
 
+
+    /**
+     * 分页封装
+     * @param int $pageSize
+     * @return array
+     */
     public static function findAllByPage($pageSize=10){
-        $query = Article::find()->orderBy('id DESC');
+        $query = static::find()->orderBy('id DESC');
         $pages = new Pagination(['totalCount' => $query->count(),'pageSize'=>$pageSize]);
         $articles = $query->offset($pages->offset)->limit($pages->limit)->all();
         return [$articles,$pages];
     }
 
+    /**
+     * 添加数据或更新数据
+     * @param $data
+     * @return bool
+     */
     public function push($data){
         $this->dealData($data);
         $this->attributes = $data;
