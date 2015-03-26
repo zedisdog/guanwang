@@ -101,7 +101,7 @@ AdminAsset::register($this);
                         <li <?php echo Yii::$app->controller->id=='brand'?'class="active"':NULL ?>><a href="<?php echo Url::toRoute('brand/index') ?>"><i class="fa fa-circle-o"></i> 硬件产品品牌管理</a></li>
                         <li <?php echo Yii::$app->controller->id=='brand-model'?'class="active"':NULL ?>><a href="<?php echo Url::toRoute('brand-model/index') ?>"><i class="fa fa-circle-o"></i> 硬件产品型号管理</a></li>
                         <li <?php echo Yii::$app->controller->id=='hardware-type'?'class="active"':NULL ?>><a href="<?php echo Url::toRoute('hardware-type/index') ?>"><i class="fa fa-circle-o"></i> 硬件产品分类管理</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i> 硬件产品管理</a></li>
+                        <li <?php echo Yii::$app->controller->id=='hardware'?'class="active"':NULL ?>><a href="<?php echo Url::toRoute('hardware/index') ?>"><i class="fa fa-circle-o"></i> 硬件产品管理</a></li>
                     </ul>
                 </li>
                 <li class="treeview <?php echo Yii::$app->controller->id=='software'?'active':NULL ?>">

@@ -38,9 +38,17 @@ $(document).ready(function(){
             $('select').change(function(){
                 check();
             });
+            $('textarea').blur(function(){
+                check();
+            });
         }
         return false;
     });
+
+    if($('#select_gear').length>0){
+        var selecter = new selecterGear();
+        selecter.init();
+    }
 });
 
 var check = function(){
@@ -74,4 +82,38 @@ var check = function(){
         }
     });
     return flag;
+};
+
+var selecterGear = function(){
+    this.parent = $('#select_gear');
+    this.son = $('select[name="'+this.parent.attr('rel')+'"]');
+    this.list = null;
+
+    this.init = function(){
+        _this = this;
+        this.parent.change(function(){
+            _this.getModelList($(this).val());
+            _this.son.html('<option value="">-请选择-</option>');
+            $.each(_this.list,function(index,item){
+                html = '<option value="'+item.id+'">'+item.title+'</option>';
+                _this.son.append(html);
+            });
+            _this.son.parent().css('display','block');
+        });
+    };
+
+    this.getModelList = function(brandId){
+        var _this = this;
+        $.ajax({
+            type:'get',
+            async:false,
+            url: _this.son.attr('rel')+'?brandId='+brandId,
+            dataType:'json',
+            success:function(data){
+                if(data.status=='ok'){
+                    _this.list = data.data;
+                }
+            }
+        });
+    };
 };
