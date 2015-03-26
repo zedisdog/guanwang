@@ -48,13 +48,13 @@ class Article extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'source' => 'Source',
-            'source_url' => 'Source Url',
+            'title' => '标题',
+            'source' => '来源',
+            'source_url' => '来源 Url',
             'view' => 'View',
-            'content' => 'Content',
-            'create_time' => 'Create Time',
-            'update_time' => 'Update Time',
+            'content' => '内容',
+            'create_time' => '创建时间',
+            'update_time' => '更新时间',
         ];
     }
 
@@ -63,5 +63,22 @@ class Article extends \yii\db\ActiveRecord
         $pages = new Pagination(['totalCount' => $query->count(),'pageSize'=>$pageSize]);
         $articles = $query->offset($pages->offset)->limit($pages->limit)->all();
         return [$articles,$pages];
+    }
+
+    public function push($data){
+        $this->dealData($data);
+        $this->attributes = $data;
+        return $this->save();
+    }
+
+    /**
+     * 处理数据
+     * 判断新建或更新，并使用不同的操作
+     * @param $data
+     */
+    public function dealData(&$data){
+        if(!$this->isNewRecord){
+            $this->update_time = date('Y-m-d H:i:s');
+        }
     }
 }

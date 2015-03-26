@@ -24,6 +24,7 @@ class EditAsset extends AssetBundle
         'plugins/kindeditor/kindeditor-all-min.js',
         'plugins/kindeditor/lang/zh_CN.js',
         'js/edit.js',
+        'js/form.js',
     ];
     public $depends = [
         'app\assets\admin\AdminAsset',

@@ -12,7 +12,7 @@ AdminAsset::register($this);
     <meta charset="UTF-8">
     <title><?php echo $this->title ?></title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <?php Html::csrfMetaTags() ?>
+    <?php echo Html::csrfMetaTags() ?>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
