@@ -195,7 +195,7 @@ header {
 }
 
 .logo {
-    margin-top: 20px;
+    margin-top: 7px;
 }
 
 .logo p {
@@ -205,6 +205,7 @@ header {
     color: #393939;
     vertical-align: middle;
     margin: 0;
+    display: inline-block;
 }
 
 p.header_text {
@@ -213,7 +214,10 @@ p.header_text {
 }
 
 .logo img {
-    vertical-align: sub;
+    display: inline-block;
+    width: 74px;
+    position: relative;
+    top: 32px;
 }
 
 .social {
@@ -285,14 +289,15 @@ nav {
 }
 
 .menu ul {
-    margin-top: 13px;
     padding: 0;
 }
 
 .menu ul li {
-    display: inline;
+    display: inline-block;
     margin: 0;
     padding: 0;
+    height: 44px;
+    line-height: 44px;
 }
 
 nav a {
@@ -324,9 +329,11 @@ nav a:hover {
 }
 
 #home #homenav {
-    background: url(../images/nav_hover.jpg) repeat-x;
-    color: #fff;
     height: 44px;
+}
+
+.main-menu li.active{
+    background: url(../images/nav_hover.jpg) repeat-x;
 }
 
 .search input {
@@ -435,7 +442,7 @@ nav a:hover {
     z-index: 40;
 }
 
-.yii-debug-toolbar-block.title{
+.yii-debug-toolbar-block.title {
     position: static;
 }
 
@@ -1559,8 +1566,7 @@ span.address {
     }
 
     nav {
-        height: 100px;
-
+        height: 50px;
     }
 
     .search {
@@ -1732,18 +1738,18 @@ span.address {
 
 /* #Font-Face
 ================================================== */
-/* 	This is the proper syntax for an @font-face file
-		Just create a "fonts" folder at the root,
-		copy your FontName into code below and remove
-		comment brackets */
+/*  This is the proper syntax for an @font-face file
+        Just create a "fonts" folder at the root,
+        copy your FontName into code below and remove
+        comment brackets */
 
-/*	@font-face {
-	    font-family: 'FontName';
-	    src: url('../fonts/FontName.eot');
-	    src: url('../fonts/FontName.eot?iefix') format('eot'),
-	         url('../fonts/FontName.woff') format('woff'),
-	         url('../fonts/FontName.ttf') format('truetype'),
-	         url('../fonts/FontName.svg#webfontZam02nTh') format('svg');
-	    font-weight: normal;
-	    font-style: normal; }
+/*  @font-face {
+        font-family: 'FontName';
+        src: url('../fonts/FontName.eot');
+        src: url('../fonts/FontName.eot?iefix') format('eot'),
+             url('../fonts/FontName.woff') format('woff'),
+             url('../fonts/FontName.ttf') format('truetype'),
+             url('../fonts/FontName.svg#webfontZam02nTh') format('svg');
+        font-weight: normal;
+        font-style: normal; }
 */

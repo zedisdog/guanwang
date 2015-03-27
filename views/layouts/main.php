@@ -2,6 +2,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
@@ -49,23 +50,22 @@ AppAsset::register($this);
     <div class="container">
 
         <div class="ten columns">
-            <div class="logo"><p><img src="images/logo.png" alt=""/> Metaverse</p></div>
-            <p class="header_text">Responsive HTML template lorem ipsum</p>
+            <div class="logo"><img src="/images/logo.png" alt=""/><p>四川蓝色港湾科技有限公司</p></div>
         </div>
 
         <div class="six columns">
             <div class="social">
                 <ul>
-                    <li><a href="#"><img src="images/icn_twitter.png" alt=""/></a></li>
-                    <li><a href="#"><img src="images/icn_dribbble.png" alt=""/></a></li>
-                    <li><a href="#"><img src="images/icn_pinterest.png" alt=""/></a></li>
-                    <li><a href="#"><img src="images/icn_zerply.png" alt=""/></a></li>
-                    <li><a href="#"><img src="images/icn_vimeo.png" alt=""/></a></li>
-                    <li><a href="#"><img src="images/icn_gplus.png" alt=""/></a></li>
-                    <li><a href="#"><img src="images/icn_linkedin.png" alt=""/></a></li>
-                    <li><a href="#"><img src="images/icn_facebook.png" alt=""/></a></li>
-                    <li><a href="#"><img src="images/icn_flickr.png" alt=""/></a></li>
-                    <li><a href="#"><img src="images/icn_forrst.png" alt=""/></a></li>
+                    <li><a href="#"><img src="/images/icn_twitter.png" alt=""/></a></li>
+                    <li><a href="#"><img src="/images/icn_dribbble.png" alt=""/></a></li>
+                    <li><a href="#"><img src="/images/icn_pinterest.png" alt=""/></a></li>
+                    <li><a href="#"><img src="/images/icn_zerply.png" alt=""/></a></li>
+                    <li><a href="#"><img src="/images/icn_vimeo.png" alt=""/></a></li>
+                    <li><a href="#"><img src="/images/icn_gplus.png" alt=""/></a></li>
+                    <li><a href="#"><img src="/images/icn_linkedin.png" alt=""/></a></li>
+                    <li><a href="#"><img src="/images/icn_facebook.png" alt=""/></a></li>
+                    <li><a href="#"><img src="/images/icn_flickr.png" alt=""/></a></li>
+                    <li><a href="#"><img src="/images/icn_forrst.png" alt=""/></a></li>
                 </ul>
             </div>
             <!-- end social -->
@@ -84,9 +84,9 @@ AppAsset::register($this);
 
             <div class="thirteen columns">
                 <div class="menu">
-                    <ul>
-                        <li><a href="index-2.html" id="homenav">首页</a></li>
-                        <li><a href="portfolio.html">硬件产品</a></li>
+                    <ul class="main-menu">
+                        <li><a href="<?php echo Url::toRoute('index/index') ?>" id="homenav">首页</a></li>
+                        <li class="active"><a href="<?php echo Url::toRoute('hardware/index') ?>">硬件产品</a></li>
                         <li><a href="about.html">软件产品</a></li>
                         <li><a href="blog.html">新闻资讯</a></li>
                         <li><a href="contact.html">关于我们</a></li>
@@ -95,11 +95,7 @@ AppAsset::register($this);
             </div>
             <!-- end thirteen columns -->
 
-            <div class="three columns">
-                <div class="search">
-                    <input type="text" name="search" class="text" value="Search..." />
-                </div>
-            </div>
+
             <!-- end three columns -->
 
         </div>
@@ -190,8 +186,7 @@ AppAsset::register($this);
 </div>
 <!-- end footer -->
 
-<!-- End Document
-================================================== -->
+<!-- End Document================================================== -->
 <?php $this->endBody() ?>
 </body>
 </html>
