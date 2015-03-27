@@ -1,5 +1,4 @@
 <?php
-use yii\helpers\StringHelper;
 use yii\helpers\Url;
 use yii\widgets\LinkPager;
 
@@ -11,7 +10,20 @@ use yii\widgets\LinkPager;
                 <div class="box-header">
                     <h3 class="box-title">日志列表</h3>
                     <div class="box-tools">
-                        <a href="<?php echo Url::toRoute('enhance/edit') ?>" class="btn btn-success btn-flat" style="color:#FFFFFF">添加</a>
+                        <div style="display: inline-block;">
+                            <select id="select-jump" class="form-control">
+                                <option value="">-选择产品-</option>
+                                <?php
+                                foreach($softwares as $software){
+                                    $select = $software->id==$softwareId?'selected':'';
+                                    echo '<option value="'.Url::toRoute(['enhance/index','softwareId'=>$software->id]).'" '.$select.'>'.$software->title.'</option>';
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <?php if($list){ ?>
+                        <a href="<?php echo Url::toRoute(['enhance/edit','softwareId'=>$softwareId]) ?>" class="btn btn-success btn-flat" style="color:#FFFFFF">添加</a>
+                        <?php } ?>
                     </div>
                 </div><!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
@@ -22,23 +34,25 @@ use yii\widgets\LinkPager;
                             <th>操作</th>
                         </tr>
                         <?php
-                        foreach($list as $log){
-                            echo '
+                        if($list){
+                            foreach($list as $log){
+                                echo '
                             <tr>
                                 <td>'.$log->date.'</td>
                                 <td>'.$log->content.'</td>
                                 <td>
-                                    <a class="btn btn-social-icon btn-facebook" title="编辑" href="'.Url::toRoute(['enhance/edit','logId'=>$log->id]).'"><i class="fa fa-edit"></i></a>
-                                    <a class="btn btn-social-icon btn-danger del" title="删除" href="'.Url::toRoute(['enhance/del','logId'=>$log->id]).'"><i class="fa fa-times"></i></a>
+                                    <a class="btn btn-social-icon btn-facebook" title="编辑" href="'.Url::toRoute(['enhance/edit','softwareId'=>$softwareId,'logId'=>$log->id]).'"><i class="fa fa-edit"></i></a>
+                                    <a class="btn btn-social-icon btn-danger del" title="删除" href="'.Url::toRoute(['enhance/del','softwareId'=>$softwareId,'logId'=>$log->id]).'"><i class="fa fa-times"></i></a>
                                 </td>
                             </tr>
                             ';
+                            }
                         }
                         ?>
                         </tbody>
                     </table>
                     <div class="box-footer clearfix">
-                        <?php echo LinkPager::widget(['pagination' => $pager,'options'=>['class'=>'pagination pagination-sm no-margin pull-right']]); ?>
+                        <?php echo $pager?LinkPager::widget(['pagination' => $pager,'options'=>['class'=>'pagination pagination-sm no-margin pull-right']]):''; ?>
                     </div>
                 </div><!-- /.box-body -->
             </div><!-- /.box -->

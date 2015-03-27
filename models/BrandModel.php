@@ -72,9 +72,9 @@ class BrandModel extends \yii\db\ActiveRecord{
      * @param int $pageSize
      * @return array
      */
-    public static function findAllByPage($brand_id=NULL,$pageSize=10){
-        if($brand_id){
-            $condition = ['brand_id'=>$brand_id];
+    public static function findAllByPage($brandId=NULL,$pageSize=10){
+        if($brandId){
+            $condition = ['brand_id'=>$brandId];
         }else{
             $condition = NULL;
         }

@@ -2,7 +2,6 @@
 
 namespace app\modules\admin\controllers;
 
-use app\models\Article;
 use app\models\Brand;
 use app\models\BrandModel;
 use \app\modules\admin\controllers\BaseController as Controller;
@@ -11,14 +10,21 @@ use yii\helpers\Json;
 use yii\helpers\Url;
 
 class BrandModelController extends Controller{
-    public function actionIndex(){
+    public function actionIndex($brandId=NULL){
         $this->getView()->title = '品牌型号管理';
-        //$articles = Article::find()->orderBy('id DESC')->all();
-        list($list,$pages) = BrandModel::findAllBypage();
-        return $this->render('index',['list'=>$list,'pager'=>$pages]);
+        if($brandId){
+            list($list,$pages) = BrandModel::findAllBypage($brandId);
+        }else{
+            $list = NULL;
+            $pages = NULL;
+        }
+
+        $brands = Brand::find()->all();
+
+        return $this->render('index',['list'=>$list,'pager'=>$pages,'brands'=>$brands,'brandId'=>$brandId]);
     }
 
-    public function actionEdit($modelId=null){
+    public function actionEdit($brandId,$modelId=null){
 
         $brands = Brand::find()->all();
 
@@ -29,9 +35,9 @@ class BrandModelController extends Controller{
         }
 
         $ajaxUrl = Url::toRoute('brand-model/ajax-save');
-        $redirectUrl = Url::toRoute('brand-model/index');
+        $redirectUrl = Url::toRoute(['brand-model/index','brandId'=>$brandId]);
 
-        return $this->render('edit_brand_model',['item'=>$brandModel,'ajaxUrl'=>$ajaxUrl,'redirectUrl'=>$redirectUrl,'brands'=>$brands]);
+        return $this->render('edit_brand_model',['item'=>$brandModel,'ajaxUrl'=>$ajaxUrl,'redirectUrl'=>$redirectUrl,'brands'=>$brands,'brandId'=>$brandId]);
     }
 
     public function actionAjaxSave(){
@@ -68,9 +74,9 @@ class BrandModelController extends Controller{
         exit(Json::encode($r));
     }
 
-    public function actionDel($modelId){
+    public function actionDel($brandId,$modelId){
         BrandModel::findOne($modelId)->delete();
-        $this->redirect(Url::toRoute('brand-model/index'));
+        $this->redirect(Url::toRoute(['brand-model/index','brandId'=>$brandId]));
     }
 
 }

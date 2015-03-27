@@ -13,21 +13,10 @@ EditAsset::register($this);
                 <form action="<?php echo $ajaxUrl ?>" method="post" rel="<?php echo $redirectUrl ?>">
                     <div class="box-body">
                         <input type="hidden" name="id" value="<?php echo $item->id ?>" />
+                        <input type="hidden" name="brand_id" value="<?php echo $item->brand_id?$item->brand_id:$brandId ?>" />
                         <div class="form-group">
                             <label>标题</label>
                             <input name="title" type="text" class="form-control" value="<?php echo $item->title ?>" placeholder="">
-                            <label style="font-weight: normal;color:red" class="error-msg"></label>
-                        </div>
-                        <div class="form-group">
-                            <label>Select</label>
-                            <select name="brand_id" class="form-control">
-                                <option value="">-选择型号-</option>
-                                <?php
-                                foreach($brands as $brand){
-                                    echo '<option value="'.$brand->id.'">'.$brand->title.'</option>';
-                                }
-                                ?>
-                            </select>
                             <label style="font-weight: normal;color:red" class="error-msg"></label>
                         </div>
                     </div>

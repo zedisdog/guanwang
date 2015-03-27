@@ -11,7 +11,20 @@ use yii\widgets\LinkPager;
                 <div class="box-header">
                     <h3 class="box-title">品牌列表</h3>
                     <div class="box-tools">
-                        <a href="<?php echo Url::toRoute('brand-model/edit') ?>" class="btn btn-success btn-flat" style="color:#FFFFFF">添加</a>
+                        <div style="display: inline-block;">
+                            <select id="select-jump" class="form-control">
+                                <option value="">-选择品牌-</option>
+                                <?php
+                                foreach($brands as $brand){
+                                    $select = $brand->id==$brandId?'selected':'';
+                                    echo '<option value="'.Url::toRoute(['brand-model/index','brandId'=>$brand->id]).'" '.$select.'>'.$brand->title.'</option>';
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <?php if($list){ ?>
+                        <a href="<?php echo Url::toRoute(['brand-model/edit','brandId'=>$brandId]) ?>" class="btn btn-success btn-flat" style="color:#FFFFFF">添加</a>
+                        <?php } ?>
                     </div>
                 </div><!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
@@ -21,22 +34,26 @@ use yii\widgets\LinkPager;
                             <th>操作</th>
                         </tr>
                         <?php
-                        foreach($list as $model){
-                            echo '
+                        if($list){
+                            foreach($list as $model){
+                                echo '
                             <tr>
                                 <td>'.$model->title.'</td>
                                 <td>
-                                    <a class="btn btn-social-icon btn-facebook" title="编辑" href="'.Url::toRoute(['brand-model/edit','modelId'=>$model->id]).'"><i class="fa fa-edit"></i></a>
-                                    <a class="btn btn-social-icon btn-danger del" title="删除" href="'.Url::toRoute(['brand-model/del','modelId'=>$model->id]).'"><i class="fa fa-times"></i></a>
+                                    <a class="btn btn-social-icon btn-facebook" title="编辑" href="'.Url::toRoute(['brand-model/edit','brandId'=>$model->brand_id,'modelId'=>$model->id]).'"><i class="fa fa-edit"></i></a>
+                                    <a class="btn btn-social-icon btn-danger del" title="删除" href="'.Url::toRoute(['brand-model/del','brandId'=>$model->brand_id,'modelId'=>$model->id]).'"><i class="fa fa-times"></i></a>
                                 </td>
                             </tr>
                             ';
+                            }
                         }
                         ?>
                         </tbody>
                     </table>
                     <div class="box-footer clearfix">
+                        <?php if($list){ ?>
                         <?php echo LinkPager::widget(['pagination' => $pager,'options'=>['class'=>'pagination pagination-sm no-margin pull-right']]); ?>
+                        <?php } ?>
                     </div>
                 </div><!-- /.box-body -->
             </div><!-- /.box -->

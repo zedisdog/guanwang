@@ -14,7 +14,7 @@ DatePickerAsset::register($this);
                 </div>
                 <form action="<?php echo $ajaxUrl ?>" method="post" rel="<?php echo $redirectUrl ?>">
                     <div class="box-body">
-                        <input type="hidden" name="softwareId" value="<?php echo $item->software_id ?>" />
+                        <input type="hidden" name="software_id" value="<?php echo $item->software_id?$item->software_id:$softwareId ?>" />
                         <input type="hidden" name="id" value="<?php echo $item->id ?>" />
                         <div class="form-group">
                             <label>时间</label>
@@ -23,7 +23,7 @@ DatePickerAsset::register($this);
                         </div>
                         <div class="form-group">
                             <label>内容</label>
-                            <input name="content" type="text" class="form-control" value="<?php echo $item->content ?>" placeholder="">
+                            <textarea name="content" style="width: 100%;height:100px"><?php echo $item->content ?></textarea>
                             <label style="font-weight: normal;color:red" class="error-msg"></label>
                         </div>
                     </div>
