@@ -92,8 +92,13 @@ class Software extends \yii\db\ActiveRecord{
      * @param int $pageSize
      * @return array
      */
-    public static function findAllByPage($pageSize = 10){
-        $query = static::find()->orderBy('id DESC')->with('type');
+    public static function findAllByPage($typeId=NULL,$pageSize = 10){
+        if($typeId){
+            $condition['type_id'] = $typeId;
+        }else{
+            $condition = NULL;
+        }
+        $query = static::find()->orderBy('id DESC')->with('type')->where($condition);
         $pages = new Pagination([
             'totalCount' => $query->count(),
             'pageSize' => $pageSize

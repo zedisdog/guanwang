@@ -12,14 +12,14 @@ use yii\widgets\LinkPager;
 
             <div class="ten columns offset-by-one">
                 <?php
-                if($hardwares && count($hardwares)>0){
-                    foreach($hardwares as $hardware){
+                if($softwares && count($softwares)>0){
+                    foreach($softwares as $software){
                         echo '
                             <div class="post">
                                 <div class="ten columns omega">
-                                    <a href="'. Url::toRoute(['hardware/detail','hardwareId'=>$hardware->id]).'"><p class="post_title">'.$hardware->title.'</p> </a>
-                                    <p>'.StringHelper::truncate($hardware->summary,100).'</p>
-                                    <a href="'. Url::toRoute(['hardware/detail','hardwareId'=>$hardware->id]).'"><div class="button">阅读更多</div></a>
+                                    <a href="'. Url::toRoute(['software/detail','softwareId'=>$software->id]).'"><p class="post_title">'.$software->title.'</p> </a>
+                                    <p>'.StringHelper::truncate($software->content,100).'</p>
+                                    <a href="'. Url::toRoute(['software/detail','softwareId'=>$software->id]).'"><div class="button">阅读更多</div></a>
                                 </div>
                             </div>
                             <div class="clear"></div>
@@ -40,11 +40,11 @@ use yii\widgets\LinkPager;
                 <div class="sidebar">
 
                     <div class="tags">
-                        <p class="sidebar_title">品牌</p>
+                        <p class="sidebar_title">分类</p>
                         <?php
-                        if($brands && count($brands)>0){
-                            foreach($brands as $brand){
-                                echo '<a href="'.Url::toRoute(['hardware/index','brandId'=>$brand->id]).'">'.$brand->title.'</a>';
+                        if($types && count($types)>0){
+                            foreach($types as $type){
+                                echo '<a href="'.Url::toRoute(['software/index','typeId'=>$type->id]).'">'.$type->title.'</a>';
                             }
                         }
                         ?>

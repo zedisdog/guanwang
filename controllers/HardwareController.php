@@ -7,6 +7,8 @@
  */
 namespace app\controllers;
 
+use app\models\Brand;
+use app\models\Hardware;
 use yii\web\Controller;
 
 class HardwareController extends Controller{
@@ -22,9 +24,20 @@ class HardwareController extends Controller{
         ];
     }
 
-    public function actionIndex(){
+    public function actionIndex($brandId=NULL){
+        list($hardwares,$pager) = Hardware::findAllByPage($brandId);
 
-        return $this->render('index');
+        $brands = Brand::find()->all();
+
+        return $this->render('index',['hardwares'=>$hardwares,'pager'=>$pager,'brands'=>$brands]);
+    }
+
+    public function actionDetail($hardwareId){
+        $item = Hardware::findOne($hardwareId);
+        $brands = Brand::find()->all();
+//        $item->view++;
+//        $item->save();
+        return $this->render('detail',['item'=>$item,'brands'=>$brands]);
     }
 
 }

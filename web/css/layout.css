@@ -764,6 +764,10 @@ p.f_post_text {
     padding-bottom: 25px;
 }
 
+.copyright p a:hover {
+    color: #00b6de;
+}
+
 /* #Page Styles
 ================================================== */
 
@@ -885,6 +889,17 @@ p.f_post_text {
 .pages_wrap h3 {
     font-size: 28px;
     padding-bottom: 4px;
+}
+
+.page {
+    text-align: right;
+    font-size: 17px;
+}
+
+.page li {
+    line-height: 18px;
+    margin-bottom: 12px;
+    display: inline-block;
 }
 
 /* #Portfolio

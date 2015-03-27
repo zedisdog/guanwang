@@ -112,8 +112,13 @@ class Hardware extends \yii\db\ActiveRecord{
      * @param int $pageSize
      * @return array
      */
-    public static function findAllByPage($pageSize = 10){
-        $query = static::find()->orderBy('id DESC')->with(['model','brand']);
+    public static function findAllByPage($brandId=NULL,$pageSize = 10){
+        if($brandId){
+            $condition['brand_id'] = $brandId;
+        }else{
+            $condition = NULL;
+        }
+        $query = static::find()->orderBy('id DESC')->with(['model','brand'])->where($condition);
         $pages = new Pagination([
             'totalCount' => $query->count(),
             'pageSize' => $pageSize
