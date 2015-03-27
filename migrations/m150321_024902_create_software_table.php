@@ -11,7 +11,8 @@ class m150321_024902_create_software_table extends Migration{
         $this->createTable('{{%software}}', [
             'id' => 'pk',
             'title' => Schema::TYPE_STRING . ' NOT NULL',
-            'price' => Schema::TYPE_STRING.' NOT NULL',         //价格
+            'type_id' => Schema::TYPE_INTEGER . ' NOT NULL',    //类型id
+            'price' => Schema::TYPE_STRING.' NOT NULL DEFAULT 0',         //价格
             'content' => Schema::TYPE_TEXT.' NOT NULL',         //描述
             'create_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT CURRENT_TIMESTAMP',
             'update_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT CURRENT_TIMESTAMP',

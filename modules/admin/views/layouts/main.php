@@ -104,14 +104,17 @@ AdminAsset::register($this);
                         <li <?php echo Yii::$app->controller->id=='hardware'?'class="active"':NULL ?>><a href="<?php echo Url::toRoute('hardware/index') ?>"><i class="fa fa-circle-o"></i> 硬件产品管理</a></li>
                     </ul>
                 </li>
-                <li class="treeview <?php echo Yii::$app->controller->id=='software'?'active':NULL ?>">
+                <li class="treeview <?php echo Yii::$app->controller->id=='software' ||
+                                               Yii::$app->controller->id=='software-type' ||
+                                               Yii::$app->controller->id=='software' ||
+                                               Yii::$app->controller->id=='enhance'?'active':NULL ?>">
                     <a href="#">
                         <i class="fa fa-dashboard"></i> <span><b>软件产品管理</b></span> <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li class="active"><a href="#"><i class="fa fa-circle-o"></i> 软件产品分类管理</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i> 软件产品管理</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i> 软件产品系统增强日志管理</a></li>
+                        <li <?php echo Yii::$app->controller->id=='software-type'?'class="active"':NULL ?>><a href="<?php echo Url::toRoute('software-type/index') ?>"><i class="fa fa-circle-o"></i> 软件产品分类管理</a></li>
+                        <li <?php echo Yii::$app->controller->id=='software'?'class="active"':NULL ?>><a href="<?php echo Url::toRoute('software/index') ?>"><i class="fa fa-circle-o"></i> 软件产品管理</a></li>
+                        <li <?php echo Yii::$app->controller->id=='enhance'?'class="active"':NULL ?>><a href="<?php echo Url::toRoute('enhance/index') ?>"><i class="fa fa-circle-o"></i> 软件产品系统增强日志管理</a></li>
                     </ul>
                 </li>
             </ul>
