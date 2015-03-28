@@ -21,7 +21,7 @@ use yii\helpers\Url;
                 <div class="sidebar">
 
                     <div class="tags">
-                        <p class="sidebar_title">品牌</p>
+                        <p class="sidebar_title">分类</p>
                         <?php
                         if($types && count($types)>0){
                             foreach($types as $type){

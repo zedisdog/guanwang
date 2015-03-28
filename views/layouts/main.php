@@ -55,7 +55,7 @@ FancyBoxAsset::register($this);
         <div class="six columns">
             <div class="social">
                 <ul>
-                    <li><a href="#"><img src="/images/icn_twitter.png" alt=""/></a></li>
+                    <li><a href="javascript:void(0);" id=""><img src="/images/icn_twitter.png" alt=""/></a></li>
                     <li><a href="#"><img src="/images/icn_dribbble.png" alt=""/></a></li>
                     <li><a href="#"><img src="/images/icn_pinterest.png" alt=""/></a></li>
                     <li><a href="#"><img src="/images/icn_zerply.png" alt=""/></a></li>

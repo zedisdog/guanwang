@@ -81,6 +81,27 @@ var check = function(){
             }
         }
     });
+
+    if($('.check-null').length>0){
+        $('.check-null').each(function(index,item){
+            if($(this).val()==''){
+                $(this).parent().addClass('has-error');
+                $(this).siblings('.error-msg').html('不可为空');
+                flag = false;
+            }
+        });
+    }
+
+
+    if($('.check-eq').length==2){
+        if($('.check-eq').eq(0).val()!=$('.check-eq').eq(1).val()){
+            $('.check-eq').each(function(index,item){
+                $(this).parent().addClass('has-error');
+                $(this).siblings('.error-msg').html('两次输入不相同');
+            });
+            flag = false;
+        }
+    }
     return flag;
 };
 

@@ -23,6 +23,8 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
         'js/jquery-1.7.1.min.js',
+        'js/share.js',
+        'http://js.t.sinajs.cn/open/widget/js/share/share_button.js?version=201402171355',
     ];
     public $depends = [
     ];

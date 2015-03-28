@@ -117,6 +117,17 @@ AdminAsset::register($this);
                         <li <?php echo Yii::$app->controller->id=='enhance'?'class="active"':NULL ?>><a href="<?php echo Url::toRoute('enhance/index') ?>"><i class="fa fa-circle-o"></i> 软件产品系统增强日志管理</a></li>
                     </ul>
                 </li>
+
+                <li class="treeview <?php echo Yii::$app->controller->id=='config' ||
+                                               Yii::$app->controller->id=='admin'?'active':NULL ?>">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i> <span><b>系统</b></span> <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li <?php echo Yii::$app->controller->id=='config'?'class="active"':NULL ?>><a href="<?php echo Url::toRoute('config/index') ?>"><i class="fa fa-circle-o"></i> 设置</a></li>
+                        <li <?php echo Yii::$app->controller->id=='admin'?'class="active"':NULL ?>><a href="<?php echo Url::toRoute('admin/index') ?>"><i class="fa fa-circle-o"></i> 管理员管理</a></li>
+                    </ul>
+                </li>
             </ul>
         </section>
         <!-- /.sidebar -->
