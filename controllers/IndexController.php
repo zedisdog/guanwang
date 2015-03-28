@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use app\models\Config;
+
 class IndexController extends \yii\web\Controller{
     public function actions(){
         return [
@@ -17,6 +19,11 @@ class IndexController extends \yii\web\Controller{
 
     public function actionIndex(){
         return $this->render('index');
+    }
+
+    public function actionAbout(){
+        $about = Config::findOne(1)->about;
+        return $this->render('about',['item'=>$about]);
     }
 
 }

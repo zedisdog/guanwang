@@ -84,11 +84,11 @@ FancyBoxAsset::register($this);
             <div class="thirteen columns">
                 <div class="menu">
                     <ul class="main-menu">
-                        <li <?php echo Yii::$app->controller->id=='index'?'class="active"':'' ?>><a href="<?php echo Url::toRoute('index/index') ?>" id="homenav">首页</a></li>
+                        <li <?php echo (Yii::$app->controller->id=='index' && Yii::$app->controller->action->id=='index')?'class="active"':'' ?>><a href="<?php echo Url::toRoute('index/index') ?>" id="homenav">首页</a></li>
                         <li <?php echo Yii::$app->controller->id=='hardware'?'class="active"':'' ?>><a href="<?php echo Url::toRoute('hardware/index') ?>">硬件产品</a></li>
                         <li <?php echo Yii::$app->controller->id=='software'?'class="active"':'' ?>><a href="<?php echo Url::toRoute('software/index') ?>">软件产品</a></li>
                         <li <?php echo Yii::$app->controller->id=='article'?'class="active"':'' ?>><a href="<?php echo Url::toRoute('article/index') ?>">新闻资讯</a></li>
-                        <li><a href="contact.html">关于我们</a></li>
+                        <li <?php echo (Yii::$app->controller->id=='article' && Yii::$app->controller->action->id=='about')?'class="active"':'' ?>><a href="<?php echo Url::toRoute('index/about') ?>">关于我们</a></li>
                     </ul>
                 </div>
             </div>
