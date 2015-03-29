@@ -1,6 +1,7 @@
 <?php
 use app\assets\IndexAsset;
 use app\assets\FancyBoxAsset;
+use yii\helpers\Url;
 
 IndexAsset::register($this);
 FancyBoxAsset::register($this);
@@ -22,14 +23,10 @@ FancyBoxAsset::register($this);
 
     <div class="container">
         <div class="sixteen columns">
-            <div class="title">
-                <h1>BLUE</h1>
+            <div class="title" style="margin-top: 12%;">
+                <h1 style="left:79%">BLUE</h1>
 
-                <h2>A responsive multipurpose HTML Template</h2>
-
-                <p>A tremor in the Force. The last time I felt it was in the presence of my old master.<br/>
-                    Red Five standing by. Don't act so surprised, Your Highness.<br/>
-                    You weren't on any mercy mission this time.</p>
+<!--                <h2>我们不做航母，只想做一个破冰船</h2>-->
             </div>
             <!-- end title -->
         </div>
@@ -41,17 +38,7 @@ FancyBoxAsset::register($this);
 
 <div class="container wrap">
 
-    <div class="text_box">
-        <div class="container">
-            <div class="fourteen columns offset-by-one">
-                <h2>The last time I felt it was in the presence of my old master.</h2>
 
-                <p>The ability to destroy a planet is insignificant next to the power of the Force.</p>
-            </div>
-        </div>
-        <!-- end container -->
-    </div>
-    <!-- end text_box -->
 
 
     <div class="clear"></div>
@@ -61,12 +48,11 @@ FancyBoxAsset::register($this);
         <div class="container">
 
             <div class="three columns offset-by-one">
-                <h3>What We Do</h3>
+                <h3>关于我们</h3>
 
-                <p>But with the blast shield down, I can't even see! How am I supposed to fight? Look, I can take you as
-                    far as Anchorhead.</p>
-                <a href="about.html">
-                    <div class="button">Learn more</div>
+                <p>四川蓝色港湾科技有限公司创立于1996年，公司总部设立于中国科技城绵阳市临园路东段78号。</p>
+                <a href="<?php Url::toRoute('index/about') ?>">
+                    <div class="button">更多</div>
                 </a>
             </div>
             <!-- end  three columns -->
@@ -138,12 +124,11 @@ FancyBoxAsset::register($this);
     <div class="recent_work">
         <div class="container">
             <div class="three columns offset-by-one">
-                <h3>Recent Work</h3>
+                <h3>软件产品</h3>
 
-                <p>But with the blast shield down, I can't even see! How am I supposed to fight? Look, I can take you as
-                    far as Anchorhead.</p>
-                <a href="portfolio.html">
-                    <div class="button">View more</div>
+                <p>我们扎根在企业、医疗、教育、政府领域，深入业务层面，精耕细作，刻苦专研，做纯中国民族资本的软件企业。</p>
+                <a href="<?php echo Url::toRoute('software/index') ?>">
+                    <div class="button">软件产品列表</div>
                 </a>
             </div>
             <!-- end four columns -->
@@ -213,12 +198,11 @@ FancyBoxAsset::register($this);
         <div class="container">
 
             <div class="three columns offset-by-one">
-                <h3>Latest Posts</h3>
+                <h3>硬件产品</h3>
 
-                <p>But with the blast shield down, I can't even see! How am I supposed to fight? Look, I can take you as
-                    far as Anchorhead.</p>
-                <a href="blog.html">
-                    <div class="button">Read more</div>
+                <p>取得联想电脑川北销售冠军、成为联想笔记本核心经销商、联想金牌服务店。</p>
+                <a href="<?php echo Url::toRoute('hardware/index') ?>">
+                    <div class="button">硬件产品列表</div>
                 </a>
             </div>
             <!-- end four columns -->
@@ -273,18 +257,7 @@ FancyBoxAsset::register($this);
 
     <div class="clear"></div>
 
-
-    <div class="text_box">
-        <div class="container">
-            <div class="fourteen columns offset-by-one">
-                <h2>Still, she's got a lot of spirit. I don't know, what do you think?</h2>
-
-                <p>She must have hidden the plans in the escape pod.</p>
-            </div>
-        </div>
-        <!-- end container -->
-    </div>
-    <!-- end text_box -->
+    
 
 
 </div>
