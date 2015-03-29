@@ -257,7 +257,7 @@ FancyBoxAsset::register($this);
 
     <div class="clear"></div>
 
-    
+
 
 
 </div>
