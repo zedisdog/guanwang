@@ -98,10 +98,21 @@ var check = function(){
             $('.check-eq').each(function(index,item){
                 $(this).parent().addClass('has-error');
                 $(this).siblings('.error-msg').html('两次输入不相同');
+                flag = false;
             });
-            flag = false;
         }
     }
+
+    if($('input[type="file"]').length>0){
+        $('input[type="file"]').each(function(index,item){
+            if($(this).attr('rel')=='' && $(this).val()==''){
+                $(this).parent().addClass('has-error');
+                $(this).siblings('.error-msg').html('请上传封面图');
+                flag = false;
+            }
+        });
+    }
+
     return flag;
 };
 

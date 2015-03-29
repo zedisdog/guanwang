@@ -20,6 +20,7 @@ use yii\widgets\LinkPager;
                                     <a href="'. Url::toRoute(['software/detail','softwareId'=>$software->id]).'"><p class="post_title">'.$software->title.'</p> </a>
                                     <p>'.StringHelper::truncate($software->content,100).'</p>
                                     <a href="'. Url::toRoute(['software/detail','softwareId'=>$software->id]).'"><div class="button">阅读更多</div></a>
+                                    <a href="'. Url::toRoute(['software/enhance-list','softwareId'=>$software->id]).'"><div class="button">更新日志</div></a>
                                 </div>
                             </div>
                             <div class="clear"></div>

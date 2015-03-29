@@ -7,6 +7,7 @@
  */
 namespace app\controllers;
 
+use app\models\Enhance;
 use app\models\Software;
 use app\models\SoftwareType;
 use yii\web\Controller;
@@ -38,6 +39,11 @@ class SoftwareController extends Controller{
 //        $item->view++;
 //        $item->save();
         return $this->render('detail',['item'=>$item,'types'=>$types]);
+    }
+
+    public function actionEnhanceList($softwareId){
+        list($enhanceList,$pager) = Enhance::findAllByPage($softwareId);
+        return $this->render('enhance_list',['list'=>$enhanceList,'pager'=>$pager]);
     }
 
 }

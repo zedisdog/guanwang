@@ -75,7 +75,7 @@ class Enhance extends \yii\db\ActiveRecord{
      * @return array
      */
     public static function findAllByPage($softwareId,$pageSize = 10){
-        $query = static::find()->orderBy('id DESC')->where(['software_id'=>$softwareId]);
+        $query = static::find()->orderBy('date DESC')->where(['software_id'=>$softwareId]);
         $pages = new Pagination([
             'totalCount' => $query->count(),
             'pageSize' => $pageSize

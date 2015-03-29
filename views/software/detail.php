@@ -7,6 +7,7 @@ use yii\helpers\Url;
         <div class="container">
             <div class="fourteen columns offset-by-one">
                 <h3><?php echo $item->title ?></h3>
+                <p><a href="<?php echo Url::toRoute(['software/enhance-list','softwareId'=>$item->id]); ?>"><div class="button">更新日志</div></a></p>
             </div> <!-- end fourteen columns -->
 
             <div class="clear"></div>
