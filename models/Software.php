@@ -9,6 +9,7 @@ use yii\data\Pagination;
  * This is the model class for table "{{%software}}".
  *
  * @property integer $id
+ * @property string $image
  * @property string $title
  * @property string $type_id
  * @property string $price
@@ -33,12 +34,13 @@ class Software extends \yii\db\ActiveRecord{
                 [
                     'title',
                     'content',
-                    'type_id'
+                    'type_id',
+                    'image'
                 ],
                 'required'
             ],
             [
-                ['content'],
+                ['content','image'],
                 'string'
             ],
             [
@@ -51,7 +53,8 @@ class Software extends \yii\db\ActiveRecord{
             [
                 [
                     'title',
-                    'price'
+                    'price',
+                    'image'
                 ],
                 'string',
                 'max' => 255
@@ -70,6 +73,7 @@ class Software extends \yii\db\ActiveRecord{
     public function attributeLabels(){
         return [
             'id' => 'ID',
+            'image' => '封面图',
             'title' => '标题',
             'type_id' => '类型',
             'price' => '价格',
@@ -129,6 +133,12 @@ class Software extends \yii\db\ActiveRecord{
     public function dealData(&$data){
         if(!$this->isNewRecord){
             $this->update_time = date('Y-m-d H:i:s');
+        }
+        $web = Yii::getAlias('@web');
+        $webroot = Yii::getAlias('@webroot');
+        if(strpos($data['image'],'/')===false){
+            copy($webroot.'/assets/images/'.$data['image'],$webroot.'/upload/software_images/'.$data['image']);
+            $data['image'] = $web.'/upload/software_images/'.$data['image'];
         }
     }
 }

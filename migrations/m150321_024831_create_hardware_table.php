@@ -10,6 +10,7 @@ class m150321_024831_create_hardware_table extends Migration{
     public function up(){
         $this->createTable('{{%hardware}}', [
             'id' => 'pk',
+            'image' => Schema::TYPE_STRING . ' NOT NULL',
             'title' => Schema::TYPE_STRING . ' NOT NULL',
             'model_id' => Schema::TYPE_INTEGER.' NOT NULL',             //型号ID
             'brand_id' => Schema::TYPE_INTEGER.' NOT NULL',             //品牌ID

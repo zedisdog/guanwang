@@ -929,6 +929,17 @@ a:focus {
   border-color: #d2d6de;
   background-color: #fff;
 }
+
+/**diy**/
+.upload-image > .upbutton{
+    display: inline-block;
+}
+
+.upload-image > img {
+    display: inline-block;
+    width: 200px;
+}
+
 /* button groups */
 .btn-group-vertical .btn.btn-flat:first-of-type,
 .btn-group-vertical .btn.btn-flat:last-of-type {

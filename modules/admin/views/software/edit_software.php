@@ -1,8 +1,10 @@
 <?php
 use app\assets\admin\EditAsset;
 use yii\helpers\Url;
+use app\assets\admin\AjaxFileUploadAsset;
 
 EditAsset::register($this);
+AjaxFileUploadAsset::register($this);
 ?>
 <section class="content">
     <div class="row">
@@ -30,6 +32,13 @@ EditAsset::register($this);
                                 }
                                 ?>
                             </select>
+                            <label style="font-weight: normal;color:red" class="error-msg"></label>
+                        </div>
+                        <div class="form-group upload-image">
+                            <label>封面图</label>
+                            <input class="upbutton" type="file" name="pic" id="pic1" rel="<?php echo Url::toRoute('software/ajax-up-load-image') ?>" />
+                            <img id="img_pic1" src="<?php echo $item->image?$item->image:'/images/example_img.png' ?>" />
+                            <input id="input_pic1" type="hidden" name="image" value="<?php echo $item->image ?>" />
                             <label style="font-weight: normal;color:red" class="error-msg"></label>
                         </div>
                         <div class="form-group">

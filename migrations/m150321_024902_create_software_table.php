@@ -10,6 +10,7 @@ class m150321_024902_create_software_table extends Migration{
     public function up(){
         $this->createTable('{{%software}}', [
             'id' => 'pk',
+            'image' => Schema::TYPE_STRING . ' NOT NULL',
             'title' => Schema::TYPE_STRING . ' NOT NULL',
             'type_id' => Schema::TYPE_INTEGER . ' NOT NULL',    //类型id
             'price' => Schema::TYPE_STRING.' NOT NULL DEFAULT 0',         //价格

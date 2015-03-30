@@ -2,18 +2,21 @@
 
 namespace app\modules\admin\controllers;
 
+use app\helpers\DiyHelper;
 use app\models\Software;
 use app\models\SoftwareType;
 use \app\modules\admin\controllers\BaseController as Controller;
 use Yii;
 use yii\helpers\Json;
 use yii\helpers\Url;
+use yii\web\UploadedFile;
 
 class SoftwareController extends Controller{
-    public function actionIndex(){
+    public function actionIndex($typeId=NULL){
         $this->getView()->title = '软件产品管理';
-        list($softwares,$pages) = Software::findAllBypage();
-        return $this->render('index',['softwares'=>$softwares,'pager'=>$pages]);
+        list($softwares,$pages) = Software::findAllBypage($typeId);
+        $types = SoftwareType::find()->all();
+        return $this->render('index',['softwares'=>$softwares,'pager'=>$pages,'types'=>$types,'typeId'=>$typeId]);
     }
 
     public function actionEdit($softwareId=null){
@@ -67,6 +70,22 @@ class SoftwareController extends Controller{
     public function actionDel($softwareId){
         Software::findOne($softwareId)->delete();
         $this->redirect(Url::toRoute('software/index'));
+    }
+
+    public function actionAjaxUpLoadImage(){
+        $image = UploadedFile::getInstanceByName('pic');
+        $urlPath = Yii::getAlias('@web/assets/images/');
+        $rootPath = Yii::getAlias('@webroot/assets/images/');
+        $imageName = DiyHelper::createGuid().'.'.$image->extension;
+        $imageUrl = $urlPath.$imageName;
+        $imagePath = $rootPath.$imageName;
+        if($image->saveAs($imagePath)){
+            $r['status']='ok';
+            $r['data'] = ['imageUrl'=>$imageUrl,'imageName'=>$imageName];
+        }else{
+            $r['status'] = 'error';
+        }
+        exit(Json::encode($r));
     }
 
 }

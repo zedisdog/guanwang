@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\controllers;
 
+use app\helpers\DiyHelper;
 use app\models\Article;
 use app\models\Brand;
 use app\models\BrandModel;
@@ -10,12 +11,15 @@ use \app\modules\admin\controllers\BaseController as Controller;
 use Yii;
 use yii\helpers\Json;
 use yii\helpers\Url;
+use yii\web\UploadedFile;
 
 class HardwareController extends Controller{
-    public function actionIndex(){
+    public function actionIndex($brandId=NULL,$modelId=NULL){
         $this->getView()->title = '硬件产品管理';
-        list($hardwares,$pages) = Hardware::findAllBypage();
-        return $this->render('index',['hardwares'=>$hardwares,'pager'=>$pages]);
+        list($hardwares,$pages) = Hardware::findAllBypage($brandId,$modelId);
+        $brands = Brand::find()->all();
+        //$models = BrandModel::find()->all();
+        return $this->render('index',['hardwares'=>$hardwares,'pager'=>$pages,'brandId'=>$brandId,'modelId'=>$modelId,'brands'=>$brands]);
     }
 
     public function actionEdit($hardwareId=null){
@@ -78,6 +82,22 @@ class HardwareController extends Controller{
         if($models){
             $r['status'] = 'ok';
             $r['data'] = $models;
+        }else{
+            $r['status'] = 'error';
+        }
+        exit(Json::encode($r));
+    }
+
+    public function actionAjaxUpLoadImage(){
+        $image = UploadedFile::getInstanceByName('pic');
+        $urlPath = Yii::getAlias('@web/assets/images/');
+        $rootPath = Yii::getAlias('@webroot/assets/images/');
+        $imageName = DiyHelper::createGuid().'.'.$image->extension;
+        $imageUrl = $urlPath.$imageName;
+        $imagePath = $rootPath.$imageName;
+        if($image->saveAs($imagePath)){
+            $r['status']='ok';
+            $r['data'] = ['imageUrl'=>$imageUrl,'imageName'=>$imageName];
         }else{
             $r['status'] = 'error';
         }

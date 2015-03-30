@@ -9,6 +9,7 @@ use yii\data\Pagination;
  * This is the model class for table "{{%hardware}}".
  *
  * @property integer $id
+ * @property string $image
  * @property string $title
  * @property integer $model_id
  * @property integer $brand_id
@@ -37,7 +38,8 @@ class Hardware extends \yii\db\ActiveRecord{
                     'model_id',
                     'brand_id',
                     'summary',
-                    'params'
+                    'params',
+                    'image'
                 ],
                 'required'
             ],
@@ -51,7 +53,8 @@ class Hardware extends \yii\db\ActiveRecord{
             [
                 [
                     'summary',
-                    'params'
+                    'params',
+                    'image'
                 ],
                 'string'
             ],
@@ -65,7 +68,8 @@ class Hardware extends \yii\db\ActiveRecord{
             [
                 [
                     'title',
-                    'price'
+                    'price',
+                    'image'
                 ],
                 'string',
                 'max' => 255
@@ -79,6 +83,7 @@ class Hardware extends \yii\db\ActiveRecord{
     public function attributeLabels(){
         return [
             'id' => 'ID',
+            'image' => '封面图片',
             'title' => '标题',
             'model_id' => '型号',
             'brand_id' => '品牌',
@@ -112,10 +117,14 @@ class Hardware extends \yii\db\ActiveRecord{
      * @param int $pageSize
      * @return array
      */
-    public static function findAllByPage($brandId=NULL,$pageSize = 10){
+    public static function findAllByPage($brandId=NULL,$modelId=NULL,$pageSize = 10){
         if($brandId){
             $condition['brand_id'] = $brandId;
-        }else{
+        }
+        if($modelId){
+            $condition['model_id'] = $modelId;
+        }
+        if(!isset($condition)){
             $condition = NULL;
         }
         $query = static::find()->orderBy('id DESC')->with(['model','brand'])->where($condition);
@@ -149,6 +158,12 @@ class Hardware extends \yii\db\ActiveRecord{
     public function dealData(&$data){
         if(!$this->isNewRecord){
             $this->update_time = date('Y-m-d H:i:s');
+        }
+        $web = Yii::getAlias('@web');
+        $webroot = Yii::getAlias('@webroot');
+        if(strpos($data['image'],'/')===false){
+            copy($webroot.'/assets/images/'.$data['image'],$webroot.'/upload/hardware_images/'.$data['image']);
+            $data['image'] = $web.'/upload/hardware_images/'.$data['image'];
         }
     }
 }

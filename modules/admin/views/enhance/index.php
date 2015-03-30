@@ -11,7 +11,7 @@ use yii\widgets\LinkPager;
                     <h3 class="box-title">日志列表</h3>
                     <div class="box-tools">
                         <div style="display: inline-block;">
-                            <select id="select-jump" class="form-control">
+                            <select class="form-control select-jump">
                                 <option value="">-选择产品-</option>
                                 <?php
                                 foreach($softwares as $software){

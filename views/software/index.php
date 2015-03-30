@@ -16,6 +16,11 @@ use yii\widgets\LinkPager;
                     foreach($softwares as $software){
                         echo '
                             <div class="post">
+                                <a href="'. Url::toRoute(['software/detail','softwareId'=>$software->id]).'">
+                                    <div class="post_image">
+                                        <img src="'.$software->image.'" class="scale-with-grid" alt="">
+                                    </div>
+                                </a>
                                 <div class="ten columns omega">
                                     <a href="'. Url::toRoute(['software/detail','softwareId'=>$software->id]).'"><p class="post_title">'.$software->title.'</p> </a>
                                     <p>'.StringHelper::truncate($software->content,100).'</p>

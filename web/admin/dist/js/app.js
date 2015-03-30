@@ -532,8 +532,8 @@ $.AdminLTE.boxWidget = {
         //
         //return confirm;
     });
-    if($('#select-jump').length>0){
-        $('#select-jump').change(function(){
+    if($('.select-jump').length>0){
+        $('.select-jump').change(function(){
             location.href = $(this).val();
         });
     }

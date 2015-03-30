@@ -39,13 +39,13 @@ AdminAsset::register($this);
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="/admin/dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
+                            <img src="/images/admin_160x160.png" class="user-image" alt="User Image"/>
                             <span class="hidden-xs"><?php echo Yii::$app->session['admin']['user_name'] ?></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="/admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                                <img src="/images/admin_160x160.png" class="img-circle" alt="User Image" />
                                 <p>
                                     <?php echo Yii::$app->session['admin']['user_name'] ?>
                                 </p>
@@ -56,9 +56,9 @@ AdminAsset::register($this);
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
-                                <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">账户设置</a>
-                                </div>
+<!--                                <div class="pull-left">-->
+<!--                                    <a href="#" class="btn btn-default btn-flat">账户设置</a>-->
+<!--                                </div>-->
                                 <div class="pull-right">
                                     <a href="<?php echo \yii\helpers\Url::toRoute('default/logout') ?>" class="btn btn-default btn-flat">注销</a>
                                 </div>
@@ -76,7 +76,7 @@ AdminAsset::register($this);
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="/admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                    <img src="/images/admin_160x160.png" class="img-circle" alt="User Image" />
                 </div>
                 <div class="pull-left info">
                     <p><?php echo Yii::$app->session['admin']['user_name'] ?></p>
@@ -85,15 +85,10 @@ AdminAsset::register($this);
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
                 <li class="header"><b>菜单</b></li>
-                <li <?php echo Yii::$app->controller->id=='article'?'class="active"':NULL ?>>
-                    <a href="<?php echo Url::toRoute('article/index') ?>">
-                        <i class="fa fa-calendar"></i> <span><b>新闻管理</b></span>
-                    </a>
-                </li>
                 <li class="treeview <?php echo Yii::$app->controller->id=='article' ||
                                                Yii::$app->controller->id=='article-type'?'active':NULL ?>">
                     <a href="#">
-                        <i class="fa fa-dashboard"></i> <span><b>新闻管理</b></span> <i class="fa fa-angle-left pull-right"></i>
+                        <i class="fa fa-asterisk"></i> <span><b>新闻管理</b></span> <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
                         <li <?php echo Yii::$app->controller->id=='article-type'?'class="active"':NULL ?>><a href="<?php echo Url::toRoute('article-type/index') ?>"><i class="fa fa-circle-o"></i> 新闻分类管理</a></li>
@@ -119,7 +114,7 @@ AdminAsset::register($this);
                                                Yii::$app->controller->id=='software' ||
                                                Yii::$app->controller->id=='enhance'?'active':NULL ?>">
                     <a href="#">
-                        <i class="fa fa-dashboard"></i> <span><b>软件产品管理</b></span> <i class="fa fa-angle-left pull-right"></i>
+                        <i class="fa fa-desktop"></i> <span><b>软件产品管理</b></span> <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
                         <li <?php echo Yii::$app->controller->id=='software-type'?'class="active"':NULL ?>><a href="<?php echo Url::toRoute('software-type/index') ?>"><i class="fa fa-circle-o"></i> 软件产品分类管理</a></li>
@@ -131,7 +126,7 @@ AdminAsset::register($this);
                 <li class="treeview <?php echo Yii::$app->controller->id=='config' ||
                                                Yii::$app->controller->id=='admin'?'active':NULL ?>">
                     <a href="#">
-                        <i class="fa fa-dashboard"></i> <span><b>系统</b></span> <i class="fa fa-angle-left pull-right"></i>
+                        <i class="fa fa-cog"></i> <span><b>系统</b></span> <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
                         <li <?php echo Yii::$app->controller->id=='config'?'class="active"':NULL ?>><a href="<?php echo Url::toRoute('config/index') ?>"><i class="fa fa-circle-o"></i> 设置</a></li>

@@ -9,6 +9,7 @@ class m150327_020218_fill_data_to_software extends Migration{
             for($j=0;$j<20;$j++){
                 $data = [
                     'title' => 'software-title'.$j,
+                    'image' => '/images/example_img.png',
                     'type_id' => $i+1,
                     'content' => 'content'.$j,
                 ];

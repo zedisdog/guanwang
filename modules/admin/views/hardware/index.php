@@ -10,6 +10,17 @@ use yii\widgets\LinkPager;
                 <div class="box-header">
                     <h3 class="box-title">产品列表</h3>
                     <div class="box-tools">
+                        <div style="display: inline-block;">
+                            <select class="form-control select-jump">
+                                <option value="<?php echo Url::toRoute(['hardware/index']) ?>">所有品牌</option>
+                                <?php
+                                foreach($brands as $brand){
+                                    $select = $brand->id==$brandId?'selected':'';
+                                    echo '<option value="'.Url::toRoute(['hardware/index','brandId'=>$brand->id,'modelId'=>$modelId]).'" '.$select.'>'.$brand->title.'</option>';
+                                }
+                                ?>
+                            </select>
+                        </div>
                         <a href="<?php echo Url::toRoute('hardware/edit') ?>" class="btn btn-success btn-flat" style="color:#FFFFFF">添加</a>
                     </div>
                 </div><!-- /.box-header -->
