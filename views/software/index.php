@@ -45,7 +45,7 @@ use yii\widgets\LinkPager;
                         <?php
                         if($types && count($types)>0){
                             foreach($types as $type){
-                                echo '<a href="'.Url::toRoute(['software/index','typeId'=>$type->id]).'">'.$type->title.'</a>';
+                                echo '<a href="'.Url::toRoute(['software/index','typeId'=>$type->id]).'" '.($typeId==$type->id?'class="active"':NULL).'>'.$type->title.'</a>';
                             }
                         }
                         ?>

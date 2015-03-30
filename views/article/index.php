@@ -10,7 +10,7 @@ use yii\widgets\LinkPager;
         <div class="container">
 
 
-            <div class="fourteen columns offset-by-one">
+            <div class="ten columns offset-by-one">
                 <?php
                 if($articles && count($articles)>0){
                     foreach($articles as $article){
@@ -34,6 +34,23 @@ use yii\widgets\LinkPager;
                     <?php echo $pager?LinkPager::widget(['pagination' => $pager]):''; ?>
                 </div>
             </div> <!-- end ten columns -->
+
+            <div class="four columns">
+                <div class="sidebar">
+
+                    <div class="tags">
+                        <p class="sidebar_title">分类</p>
+                        <?php
+                        if($types && count($types)>0){
+                            foreach($types as $type){
+                                echo '<a href="'.Url::toRoute(['article/index','typeId'=>$type->id]).'" '.($typeId==$type->id?'class="active"':NULL).'>'.$type->title.'</a>';
+                            }
+                        }
+                        ?>
+                    </div> <!-- end tags -->
+
+                </div> <!-- end sidebar -->
+            </div> <!-- end four columns -->
 
         </div> <!-- end container -->
     </div> <!-- end blog -->

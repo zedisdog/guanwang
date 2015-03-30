@@ -3,17 +3,18 @@
 namespace app\modules\admin\controllers;
 
 use app\models\Article;
+use app\models\ArticleType;
 use \app\modules\admin\controllers\BaseController as Controller;
 use Yii;
 use yii\helpers\Json;
 use yii\helpers\Url;
 
 class ArticleController extends Controller{
-    public function actionIndex(){
+    public function actionIndex($typeId=NULL){
         $this->getView()->title = '文章管理';
-        //$articles = Article::find()->orderBy('id DESC')->all();
-        list($articles,$pages) = Article::findAllBypage();
-        return $this->render('index',['articles'=>$articles,'pager'=>$pages]);
+        list($articles,$pages) = Article::findAllBypage($typeId);
+        $typeList = ArticleType::find()->all();
+        return $this->render('index',['articles'=>$articles,'pager'=>$pages,'typeList'=>$typeList,'typeId'=>$typeId]);
     }
 
     public function actionEdit($articleId=null){
@@ -23,10 +24,12 @@ class ArticleController extends Controller{
             $article = New Article();
         }
 
+        $types = ArticleType::find()->all();
+
         $ajaxUrl = Url::toRoute('article/ajax-save');
         $redirectUrl = Url::toRoute('article/index');
 
-        return $this->render('edit_article',['item'=>$article,'ajaxUrl'=>$ajaxUrl,'redirectUrl'=>$redirectUrl]);
+        return $this->render('edit_article',['item'=>$article,'ajaxUrl'=>$ajaxUrl,'redirectUrl'=>$redirectUrl,'types'=>$types]);
     }
 
     public function actionSave(){

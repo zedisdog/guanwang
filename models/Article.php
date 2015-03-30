@@ -9,6 +9,7 @@ use yii\data\Pagination;
  * This is the model class for table "{{%article}}".
  *
  * @property integer $id
+ * @property string $article_type
  * @property string $title
  * @property string $source
  * @property string $source_url
@@ -17,37 +18,61 @@ use yii\data\Pagination;
  * @property string $create_time
  * @property string $update_time
  */
-class Article extends \yii\db\ActiveRecord
-{
+class Article extends \yii\db\ActiveRecord{
     /**
      * @inheritdoc
      */
-    public static function tableName()
-    {
+    public static function tableName(){
         return '{{%article}}';
     }
 
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules(){
         return [
-            [['title', 'content'], 'required'],
-            [['view'], 'integer'],
-            [['content'], 'string'],
-            [['create_time', 'update_time'], 'safe'],
-            [['title', 'source', 'source_url'], 'string', 'max' => 255]
+            [
+                [
+                    'title',
+                    'content',
+                    'article_type'
+                ],
+                'required'
+            ],
+            [
+                ['view'],
+                'integer'
+            ],
+            [
+                ['content'],
+                'string'
+            ],
+            [
+                [
+                    'create_time',
+                    'update_time'
+                ],
+                'safe'
+            ],
+            [
+                [
+                    'title',
+                    'source',
+                    'source_url'
+                ],
+                'string',
+                'max' => 255
+            ]
         ];
     }
 
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels(){
         return [
             'id' => 'ID',
+            'article_type' => '文章分类',
             'title' => '标题',
             'source' => '来源',
             'source_url' => '来源 Url',
@@ -64,11 +89,22 @@ class Article extends \yii\db\ActiveRecord
      * @param int $pageSize
      * @return array
      */
-    public static function findAllByPage($pageSize=10){
-        $query = static::find()->orderBy('id DESC');
-        $pages = new Pagination(['totalCount' => $query->count(),'pageSize'=>$pageSize]);
+    public static function findAllByPage($typeId=NULL,$pageSize = 10){
+        if($typeId){
+            $condition = ['article_type'=>$typeId];
+        }else{
+            $condition = NULL;
+        }
+        $query = static::find()->orderBy('id DESC')->where($condition);
+        $pages = new Pagination([
+            'totalCount' => $query->count(),
+            'pageSize' => $pageSize
+        ]);
         $articles = $query->offset($pages->offset)->limit($pages->limit)->all();
-        return [$articles,$pages];
+        return [
+            $articles,
+            $pages
+        ];
     }
 
     /**

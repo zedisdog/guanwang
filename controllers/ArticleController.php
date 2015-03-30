@@ -8,6 +8,7 @@
 namespace app\controllers;
 
 use app\models\Article;
+use app\models\ArticleType;
 use yii\web\Controller;
 
 class ArticleController extends Controller{
@@ -23,10 +24,11 @@ class ArticleController extends Controller{
         ];
     }
 
-    public function actionIndex(){
-        list($articles,$pager) = Article::findAllByPage();
+    public function actionIndex($typeId=NULL){
+        list($articles,$pager) = Article::findAllByPage($typeId);
+        $types = ArticleType::find()->all();
 
-        return $this->render('index',['articles'=>$articles,'pager'=>$pager]);
+        return $this->render('index',['articles'=>$articles,'pager'=>$pager,'types'=>$types,'typeId'=>$typeId]);
     }
 
     public function actionDetail($articleId){

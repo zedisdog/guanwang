@@ -24,7 +24,7 @@ FancyBoxAsset::register($this);
     <div class="container">
         <div class="sixteen columns">
             <div class="title" style="margin-top: 12%;">
-                <h1 style="left:79%">BLUE</h1>
+                <h1 style="left:90%">BLUE</h1>
 
 <!--                <h2>我们不做航母，只想做一个破冰船</h2>-->
             </div>

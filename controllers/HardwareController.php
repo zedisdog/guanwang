@@ -29,7 +29,7 @@ class HardwareController extends Controller{
 
         $brands = Brand::find()->all();
 
-        return $this->render('index',['hardwares'=>$hardwares,'pager'=>$pager,'brands'=>$brands]);
+        return $this->render('index',['hardwares'=>$hardwares,'pager'=>$pager,'brands'=>$brands,'brandId'=>$brandId]);
     }
 
     public function actionDetail($hardwareId){

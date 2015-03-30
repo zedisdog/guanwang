@@ -9,42 +9,25 @@ use yii\widgets\LinkPager;
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">文章列表</h3>
+                    <h3 class="box-title">分类列表</h3>
                     <div class="box-tools">
-                        <div style="display: inline-block;">
-                            <select id="select-jump" class="form-control">
-                                <option value="<?php echo Url::toRoute('article/index'); ?>">全部新闻</option>
-                                <?php
-                                foreach($typeList as $type){
-                                    $select = $type->id==$typeId?'selected':'';
-                                    echo '<option value="'.Url::toRoute(['article/index','typeId'=>$type->id]).'" '.$select.'>'.$type->title.'</option>';
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <a href="<?php echo Url::toRoute('article/edit') ?>" class="btn btn-success btn-flat" style="color:#FFFFFF">添加</a>
+                        <a href="<?php echo Url::toRoute('article-type/edit') ?>" class="btn btn-success btn-flat" style="color:#FFFFFF">添加</a>
                     </div>
                 </div><!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-hover">
                         <tbody><tr>
-                            <th>标题</th>
-                            <th>内容</th>
-                            <th>创建时间</th>
-                            <th>修改时间</th>
+                            <th>名称</th>
                             <th>操作</th>
                         </tr>
                         <?php
-                        foreach($articles as $article){
+                        foreach($list as $type){
                             echo '
                             <tr>
-                                <td>'.$article->title.'</td>
-                                <td>'.StringHelper::truncate($article->content,20).'</td>
-                                <td>'.$article->create_time.'</td>
-                                <td>'.$article->update_time.'</td>
+                                <td>'.$type->title.'</td>
                                 <td>
-                                    <a class="btn btn-social-icon btn-facebook" title="编辑" href="'.Url::toRoute(['article/edit','articleId'=>$article->id]).'"><i class="fa fa-edit"></i></a>
-                                    <a class="btn btn-social-icon btn-danger del" title="删除" href="'.Url::toRoute(['article/del','articleId'=>$article->id]).'"><i class="fa fa-times"></i></a>
+                                    <a class="btn btn-social-icon btn-facebook" title="编辑" href="'.Url::toRoute(['article-type/edit','typeId'=>$type->id]).'"><i class="fa fa-edit"></i></a>
+                                    <a class="btn btn-social-icon btn-danger del" title="删除" href="'.Url::toRoute(['article-type/del','typeId'=>$type->id]).'"><i class="fa fa-times"></i></a>
                                 </td>
                             </tr>
                             ';

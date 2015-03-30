@@ -30,7 +30,7 @@ class SoftwareController extends Controller{
 
         $types = SoftwareType::find()->all();
 
-        return $this->render('index',['softwares'=>$softwares,'pager'=>$pager,'types'=>$types]);
+        return $this->render('index',['softwares'=>$softwares,'pager'=>$pager,'types'=>$types,'typeId'=>$typeId]);
     }
 
     public function actionDetail($softwareId){

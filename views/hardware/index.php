@@ -44,7 +44,7 @@ use yii\widgets\LinkPager;
                         <?php
                         if($brands && count($brands)>0){
                             foreach($brands as $brand){
-                                echo '<a href="'.Url::toRoute(['hardware/index','brandId'=>$brand->id]).'">'.$brand->title.'</a>';
+                                echo '<a href="'.Url::toRoute(['hardware/index','brandId'=>$brand->id]).'" '.($brandId==$brand->id?'class="active"':NULL).'>'.$brand->title.'</a>';
                             }
                         }
                         ?>

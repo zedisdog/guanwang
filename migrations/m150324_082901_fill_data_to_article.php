@@ -8,6 +8,7 @@ class m150324_082901_fill_data_to_article extends Migration{
         for($i=0;$i<20;$i++){
             $data = [
                 'title' => 'title'.$i,
+                'article_type' => mt_rand(1,2),
                 'source' => 'source'.$i,
                 'source_url' => 'http://www.'.$i.'.com',
                 'content' => 'content'.$i,

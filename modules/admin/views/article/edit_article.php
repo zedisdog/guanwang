@@ -19,6 +19,19 @@ EditAsset::register($this);
                             <label style="font-weight: normal;color:red" class="error-msg"></label>
                         </div>
                         <div class="form-group">
+                            <label>分类</label>
+                            <select name="article_type" class="form-control">
+                                <option value="">-选择分类-</option>
+                                <?php
+                                foreach($types as $type){
+                                    $select = $item->article_type==$type->id?'selected':'';
+                                    echo '<option value="'.$type->id.'" '.$select.'>'.$type->title.'</option>';
+                                }
+                                ?>
+                            </select>
+                            <label style="font-weight: normal;color:red" class="error-msg"></label>
+                        </div>
+                        <div class="form-group">
                             <label>来源</label>
                             <input name="source" type="text" class="form-control" value="<?php echo $item->source ?>" placeholder="">
                             <label style="font-weight: normal;color:red" class="error-msg"></label>

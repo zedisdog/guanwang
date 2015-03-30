@@ -1205,6 +1205,11 @@ p.sidebar_title2 {
     text-decoration: none;
 }
 
+.tags a.active {
+    background: #00b6de;
+    text-decoration: none;
+}
+
 .top_posts a {
     color: #646464;
     text-decoration: none;

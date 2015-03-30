@@ -1,28 +1,20 @@
 <?php
-/**
- * 新闻表
- */
 
 use yii\db\Schema;
 use yii\db\Migration;
 
-class m150322_143030_create_article_table extends Migration{
+class m150322_012054_create_config_table extends Migration{
     public function up(){
-        $this->createTable('{{%article}}', [
+        $this->createTable('{{%config}}', [
             'id' => 'pk',
-            'article_type' => Schema::TYPE_INTEGER.' NOT NULL',
-            'title' => Schema::TYPE_STRING . ' NOT NULL',
-            'source' => Schema::TYPE_STRING,
-            'source_url' => Schema::TYPE_STRING,
-            'view' => Schema::TYPE_INTEGER. ' NOT NULL DEFAULT 0',
-            'content' => 'longtext NOT NULL',
+            'about' => Schema::TYPE_TEXT,
             'create_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT CURRENT_TIMESTAMP',
             'update_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT CURRENT_TIMESTAMP',
         ]);
     }
 
     public function down(){
-        $this->dropTable('{{%article}}');
+        $this->dropTable('{{%config}}');
         return true;
     }
 

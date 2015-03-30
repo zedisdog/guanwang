@@ -90,6 +90,16 @@ AdminAsset::register($this);
                         <i class="fa fa-calendar"></i> <span><b>新闻管理</b></span>
                     </a>
                 </li>
+                <li class="treeview <?php echo Yii::$app->controller->id=='article' ||
+                                               Yii::$app->controller->id=='article-type'?'active':NULL ?>">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i> <span><b>新闻管理</b></span> <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li <?php echo Yii::$app->controller->id=='article-type'?'class="active"':NULL ?>><a href="<?php echo Url::toRoute('article-type/index') ?>"><i class="fa fa-circle-o"></i> 新闻分类管理</a></li>
+                        <li <?php echo Yii::$app->controller->id=='article'?'class="active"':NULL ?>><a href="<?php echo Url::toRoute('article/index') ?>"><i class="fa fa-circle-o"></i> 新闻管理</a></li>
+                    </ul>
+                </li>
                 <li class="treeview <?php echo Yii::$app->controller->id=='hardware' ||
                                                Yii::$app->controller->id=='brand' ||
                                                Yii::$app->controller->id=='brand-model' ||
