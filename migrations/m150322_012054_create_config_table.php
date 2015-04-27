@@ -8,7 +8,7 @@ class m150322_012054_create_config_table extends Migration{
         $this->createTable('{{%config}}', [
             'id' => 'pk',
             'about' => Schema::TYPE_TEXT,
-            'create_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT "0000-00-00 00:00:00"',
+            'create_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT now()',
             'update_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT now() ON UPDATE now()',
         ]);
     }
