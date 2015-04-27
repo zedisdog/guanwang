@@ -10,7 +10,7 @@ class m150324_020137_create_admin_table extends Migration{
             'user_name' => Schema::TYPE_STRING.' NOT NULL',
             'password' => Schema::TYPE_STRING.' NOT NULL',
             'create_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT "0000-00-00 00:00:00"',
-            'update_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT CURRENT_TIMESTAMP',
+            'update_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT default now() on update now()',
             'last_login' => Schema::TYPE_TIMESTAMP,
         ]);
     }

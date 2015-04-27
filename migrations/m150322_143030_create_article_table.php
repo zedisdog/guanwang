@@ -17,7 +17,7 @@ class m150322_143030_create_article_table extends Migration{
             'view' => Schema::TYPE_INTEGER. ' NOT NULL DEFAULT 0',
             'content' => 'longtext NOT NULL',
             'create_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT "0000-00-00 00:00:00"',
-            'update_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT CURRENT_TIMESTAMP',
+            'update_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT default now() on update now()',
         ]);
     }
 

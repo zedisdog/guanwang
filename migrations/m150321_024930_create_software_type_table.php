@@ -12,7 +12,7 @@ class m150321_024930_create_software_type_table extends Migration{
             'id' => 'pk',
             'title' => Schema::TYPE_STRING . ' NOT NULL',
             'create_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT "0000-00-00 00:00:00"',
-            'update_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT CURRENT_TIMESTAMP',
+            'update_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT default now() on update now()',
         ]);
     }
 
