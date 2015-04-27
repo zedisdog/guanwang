@@ -60,7 +60,7 @@ FancyBoxAsset::register($this);
             <div class="ten columns offset-by-one">
 
                 <div class="two columns alpha">
-                    <img class="disp" src="images/serv_icn1.png" alt=""/>
+                    <img class="disp" src="/images/serv_icn1.png" alt=""/>
                 </div>
                 <!-- end two columns -->
                 <div class="three columns omega h_serv">
@@ -71,7 +71,7 @@ FancyBoxAsset::register($this);
                 <!-- end three columns -->
 
                 <div class="two columns alpha">
-                    <img src="images/serv_icn2.png" alt=""/>
+                    <img src="/images/serv_icn2.png" alt=""/>
                 </div>
                 <!-- end two columns -->
                 <div class="three columns omega h_serv">
@@ -84,7 +84,7 @@ FancyBoxAsset::register($this);
                 <div class="clear"></div>
 
                 <div class="two columns alpha">
-                    <img src="images/serv_icn3.png" alt=""/>
+                    <img src="/images/serv_icn3.png" alt=""/>
                 </div>
                 <!-- end two columns -->
                 <div class="three columns omega h_serv">
@@ -95,7 +95,7 @@ FancyBoxAsset::register($this);
                 <!-- end three columns -->
 
                 <div class="two columns alpha">
-                    <img src="images/serv_icn4.png" alt=""/>
+                    <img src="/images/serv_icn4.png" alt=""/>
                 </div>
                 <!-- end two columns -->
                 <div class="three columns omega h_serv">
@@ -137,8 +137,8 @@ FancyBoxAsset::register($this);
             <div class="eleven columns">
 
                 <div class="r_work1">
-                    <a href="images/example_img.png" class="single_image">
-                        <div class="rw thumb"><img src="images/thumb1.png" alt=""/></div>
+                    <a href="/images/example_img.png" class="single_image">
+                        <div class="rw thumb"><img src="/images/thumb1.png" alt=""/></div>
                     </a>
 
                     <div class="caption">
@@ -151,8 +151,8 @@ FancyBoxAsset::register($this);
                 <!-- end r_work1 -->
 
                 <div class="r_work2">
-                    <a href="images/example_img.png" class="single_image">
-                        <div class="rw thumb"><img src="images/thumb2.png" alt=""/></div>
+                    <a href="/images/example_img.png" class="single_image">
+                        <div class="rw thumb"><img src="/images/thumb2.png" alt=""/></div>
                     </a>
 
                     <div class="caption">
@@ -165,8 +165,8 @@ FancyBoxAsset::register($this);
                 <!-- end r_work1 -->
 
                 <div class="r_work3">
-                    <a href="images/example_img.png" class="single_image">
-                        <div class="rw thumb"><img src="images/thumb3.png" alt=""/></div>
+                    <a href="/images/example_img.png" class="single_image">
+                        <div class="rw thumb"><img src="/images/thumb3.png" alt=""/></div>
                     </a>
 
                     <div class="caption">
