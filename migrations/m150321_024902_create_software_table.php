@@ -16,7 +16,7 @@ class m150321_024902_create_software_table extends Migration{
             'price' => Schema::TYPE_STRING.' NOT NULL DEFAULT 0',         //价格
             'content' => Schema::TYPE_TEXT.' NOT NULL',         //描述
             'create_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT "0000-00-00 00:00:00"',
-            'update_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT default now() on update now()',
+            'update_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT now() ON UPDATE now()',
         ]);
     }
 
