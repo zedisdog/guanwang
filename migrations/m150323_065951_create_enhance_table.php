@@ -13,7 +13,7 @@ class m150323_065951_create_enhance_table extends Migration{
             'software_id' => Schema::TYPE_INTEGER.' NOT NULL',                              //软件产品id
             'content' => Schema::TYPE_STRING.' NOT NULL',
             'date' => Schema::TYPE_DATE. ' NOT NULL',                                       //更新时间
-            'create_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT CURRENT_TIMESTAMP',
+            'create_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT now()',
             'update_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT CURRENT_TIMESTAMP',
         ]);
     }

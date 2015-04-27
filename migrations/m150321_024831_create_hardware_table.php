@@ -17,7 +17,7 @@ class m150321_024831_create_hardware_table extends Migration{
             'price' => Schema::TYPE_STRING.' NOT NULL DEFAULT 0',       //价格
             'summary' => Schema::TYPE_TEXT.' NOT NULL DEFAULT ""',      //概述
             'params' => Schema::TYPE_TEXT.' NOT NULL DEFAULT ""',       //参数
-            'create_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT CURRENT_TIMESTAMP',
+            'create_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT now()',
             'update_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT CURRENT_TIMESTAMP',
         ]);
     }
