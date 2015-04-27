@@ -8,7 +8,7 @@ class m150322_021222_create_article_type_table extends Migration{
         $this->createTable('{{%article_type}}', [
             'id' => 'pk',
             'title' => Schema::TYPE_STRING,
-            'create_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT now()',
+            'create_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT "0000-00-00 00:00:00"',
             'update_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT CURRENT_TIMESTAMP',
         ]);
     }
