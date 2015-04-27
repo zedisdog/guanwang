@@ -12,8 +12,8 @@ class m150322_093114_create_brand_model_table extends Migration{
             'id' => 'pk',
             'brand_id' => Schema::TYPE_INTEGER.' NOT NULL',
             'title' => Schema::TYPE_STRING . ' NOT NULL',
-            'create_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT "0000-00-00 00:00:00" ON INSERT now()',
-            'update_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT now() ON UPDATE now()',
+            'create_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT now()',
+            'update_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT "0000-00-00 00:00:00" ON UPDATE now()',
         ]);
 
     }
