@@ -133,6 +133,8 @@ class Software extends \yii\db\ActiveRecord{
     public function dealData(&$data){
         if(!$this->isNewRecord){
             $this->update_time = date('Y-m-d H:i:s');
+        }else{
+            $this->create_time = date('Y-m-d H:i:s');
         }
         $web = Yii::getAlias('@web');
         $webroot = Yii::getAlias('@webroot');

@@ -11,8 +11,8 @@ class m150321_024941_create_hardware_type_table extends Migration{
         $this->createTable('{{%hardware_type}}', [
             'id' => 'pk',
             'title' => Schema::TYPE_STRING . ' NOT NULL',
-            'create_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT now()',
-            'update_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT "0000-00-00 00:00:00" ON UPDATE now()',
+            'create_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT "0000-00-00 00:00:00"',
+            'update_time' => Schema::TYPE_TIMESTAMP.' NOT NULL DEFAULT "0000-00-00 00:00:00"',
         ]);
     }
 

@@ -131,6 +131,8 @@ class Admin extends ActiveRecord implements IdentityInterface{
     public function dealData(&$data){
         if(!$this->isNewRecord){
             $this->update_time = date('Y-m-d H:i:s');
+        }else{
+            $this->create_time = date('Y-m-d H:i:s');
         }
     }
 }
