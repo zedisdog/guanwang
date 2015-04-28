@@ -10,6 +10,7 @@ class m150326_084437_fill_data_to_brand_model extends Migration{
                 $data = [
                     'title' => 'model-title'.$j,
                     'brand_id' => $i,
+                    'create_time' => NULL,
                 ];
                 $this->insert('{{%brand_model}}',$data);
             }

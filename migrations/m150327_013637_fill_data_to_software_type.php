@@ -8,6 +8,7 @@ class m150327_013637_fill_data_to_software_type extends Migration{
         for($i=0;$i<20;$i++){
             $data = [
                 'title' => 'software-type'.$i,
+                'create_time' => NULL,
             ];
             $this->insert('{{%software_type}}',$data);
         }
