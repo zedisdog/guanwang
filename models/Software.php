@@ -14,6 +14,7 @@ use yii\data\Pagination;
  * @property string $type_id
  * @property string $price
  * @property string $content
+ * @property string $view
  * @property string $create_time
  * @property string $update_time
  */
@@ -42,6 +43,10 @@ class Software extends \yii\db\ActiveRecord{
             [
                 ['content','image'],
                 'string'
+            ],
+            [
+                ['view'],
+                'integer'
             ],
             [
                 [
@@ -78,6 +83,7 @@ class Software extends \yii\db\ActiveRecord{
             'type_id' => '类型',
             'price' => '价格',
             'content' => '内容',
+            'view' => '浏览数',
             'create_time' => 'Create Time',
             'update_time' => 'Update Time',
         ];

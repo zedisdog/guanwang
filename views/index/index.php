@@ -1,6 +1,7 @@
 <?php
 use app\assets\IndexAsset;
 use app\assets\FancyBoxAsset;
+use yii\helpers\StringHelper;
 use yii\helpers\Url;
 
 IndexAsset::register($this);
@@ -136,46 +137,36 @@ FancyBoxAsset::register($this);
 
             <div class="eleven columns">
 
-                <div class="r_work1">
-                    <a href="/images/example_img.png" class="single_image">
-                        <div class="rw thumb"><img src="/images/thumb1.png" alt=""/></div>
-                    </a>
+                <?php
+                foreach($software as $k=>$v){
+                    echo '
+                    <div class="r_work'.($k+1).'">
+                        <a href="'.Url::toRoute(['software/detail','softwareId'=>$v->id]).'" class="">
+                            <div class="rw thumb"><img width="172" height="129" src="'.$v->image.'" alt=""/></div>
+                        </a>
+                        <div class="caption">
+                            <p class="rw_title">'.$v->title.'</p>
 
-                    <div class="caption">
-                        <p class="rw_title">Project name</p>
 
-                        <p class="rw_desc">HTML/CSS</p>
+                        </div>
+                        <!-- end caption -->
                     </div>
+                    <!-- end r_work1 -->
+                    ';
+                }
+                ?>
+<!--                <div class="r_work3">-->
+<!--                    <a href="/images/example_img.png" class="single_image">-->
+<!--                        <div class="rw thumb"><img src="/images/thumb3.png" alt=""/></div>-->
+<!--                    </a>-->
+<!---->
+<!--                    <div class="caption">-->
+<!--                        <p class="rw_title">Project name</p>-->
+<!---->
+<!--                        <p class="rw_desc">HTML/CSS</p>-->
+<!--                    </div>-->
                     <!-- end caption -->
-                </div>
-                <!-- end r_work1 -->
-
-                <div class="r_work2">
-                    <a href="/images/example_img.png" class="single_image">
-                        <div class="rw thumb"><img src="/images/thumb2.png" alt=""/></div>
-                    </a>
-
-                    <div class="caption">
-                        <p class="rw_title">Project name</p>
-
-                        <p class="rw_desc">HTML/CSS</p>
-                    </div>
-                    <!-- end caption -->
-                </div>
-                <!-- end r_work1 -->
-
-                <div class="r_work3">
-                    <a href="/images/example_img.png" class="single_image">
-                        <div class="rw thumb"><img src="/images/thumb3.png" alt=""/></div>
-                    </a>
-
-                    <div class="caption">
-                        <p class="rw_title">Project name</p>
-
-                        <p class="rw_desc">HTML/CSS</p>
-                    </div>
-                    <!-- end caption -->
-                </div>
+<!--                </div>-->
                 <!-- end r_work1 -->
 
             </div>
@@ -207,46 +198,36 @@ FancyBoxAsset::register($this);
             </div>
             <!-- end four columns -->
 
-            <div class="four columns">
-                <a href="blog.html">
-                    <div class="post_thumb1 thumb"></div>
-                </a>
+            <?php
+            foreach($hardware as $k=>$v){
+                echo '
+                <div class="four columns">
+                    <a href="'.Url::toRoute(['hardware/detail','hardwareId'=>$v->id]).'">
+                        <div class="rw thumb"><img width="172" height="140" src="'.$v->image.'" alt=""/></div>
+                    </a>
 
-                <p class="t_post_title">Return of the Jedi</p>
+                    <p class="t_post_title">'.$v->title.'</p>
 
-                <p class="t_meta">17 May, 2012</p>
+                    <p class="t_meta">'.$v->create_time.'</p>
 
-                <p class="t_post_text">It's not that I like the Empire, I hate it, but there's nothing I can do about it
-                    right now?/p>
-            </div>
-            <!-- end four columns -->
+                    <p class="t_post_text">'.StringHelper::truncate($v->summary,20).'</p>
+                </div>
+                ';
+            }
+            ?>
 
-            <div class="four columns">
-                <a href="blog.html">
-                    <div class="post_thumb1 thumb"></div>
-                </a>
-
-                <p class="t_post_title">Return of the Jedi</p>
-
-                <p class="t_meta">17 May, 2012</p>
-
-                <p class="t_post_text">It's not that I like the Empire, I hate it, but there's nothing I can do about it
-                    right now?/p>
-            </div>
-            <!-- end four columns -->
-
-            <div class="four columns">
-                <a href="blog.html">
-                    <div class="post_thumb1 thumb"></div>
-                </a>
-
-                <p class="t_post_title">Return of the Jedi</p>
-
-                <p class="t_meta">17 May, 2012</p>
-
-                <p class="t_post_text">It's not that I like the Empire, I hate it, but there's nothing I can do about it
-                    right now?/p>
-            </div>
+<!--            <div class="four columns">-->
+<!--                <a href="blog.html">-->
+<!--                    <div class="post_thumb1 thumb"></div>-->
+<!--                </a>-->
+<!---->
+<!--                <p class="t_post_title">Return of the Jedi</p>-->
+<!---->
+<!--                <p class="t_meta">17 May, 2012</p>-->
+<!---->
+<!--                <p class="t_post_text">It's not that I like the Empire, I hate it, but there's nothing I can do about it-->
+<!--                    right now?/p>-->
+<!--            </div>-->
             <!-- end four columns -->
 
         </div>
