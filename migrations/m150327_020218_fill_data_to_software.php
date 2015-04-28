@@ -12,7 +12,7 @@ class m150327_020218_fill_data_to_software extends Migration{
                     'image' => '/images/example_img.png',
                     'type_id' => $i+1,
                     'content' => 'content'.$j,
-                    'create_time' => NULL,
+                    'create_time' => date('Y-m-d H:i:s'),
                 ];
                 $this->insert('{{%software}}',$data);
             }

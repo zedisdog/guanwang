@@ -12,7 +12,7 @@ class m150324_082901_fill_data_to_article extends Migration{
                 'source' => 'source'.$i,
                 'source_url' => 'http://www.'.$i.'.com',
                 'content' => 'content'.$i,
-                'create_time' => NULL,
+                'create_time' => date('Y-m-d H:i:s'),
             ];
             $this->insert('{{%article}}',$data);
         }

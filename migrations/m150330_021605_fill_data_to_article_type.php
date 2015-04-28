@@ -8,7 +8,7 @@ class m150330_021605_fill_data_to_article_type extends Migration{
         for($i=0;$i<2;$i++){
             $data = [
                 'title' => 'article_type'.$i,
-                'create_time' => NULL,
+                'create_time' => date('Y-m-d H:i:s'),
             ];
             $this->insert('{{%article_type}}',$data);
         }

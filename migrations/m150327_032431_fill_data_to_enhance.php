@@ -11,7 +11,7 @@ class m150327_032431_fill_data_to_enhance extends Migration{
                     'content' => 'enhance-content'.$j,
                     'software_id' => $i+1,
                     'date' => date('Y-m-d'),
-                    'create_time' => NULL,
+                    'create_time' => date('Y-m-d H:i:s'),
                 ];
                 $this->insert('{{%enhance}}',$data);
             }

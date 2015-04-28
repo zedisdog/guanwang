@@ -7,7 +7,7 @@ class m150328_012320_fill_data_to_config extends Migration{
     public function up(){
         $data = [
             'about' => 'about',
-            'create_time' => NULL,
+            'create_time' => date('Y-m-d H:i:s'),
         ];
         $this->insert('{{%config}}',$data);
     }

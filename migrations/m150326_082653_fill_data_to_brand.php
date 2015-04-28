@@ -8,7 +8,7 @@ class m150326_082653_fill_data_to_brand extends Migration{
         for($i=0;$i<20;$i++){
             $data = [
                 'title' => 'title'.$i,
-                'create_time' => NULL,
+                'create_time' => date('Y-m-d H:i:s'),
             ];
             $this->insert('{{%brand}}',$data);
         }

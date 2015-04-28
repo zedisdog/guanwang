@@ -8,7 +8,7 @@ class m150326_091532_fill_data_to_hardware_type extends Migration{
         for($i=0;$i<20;$i++){
             $data = [
                 'title' => 'typetitle'.$i,
-                'create_time' => NULL,
+                'create_time' => date('Y-m-d H:i:s'),
             ];
             $this->insert('{{%hardware_type}}',$data);
         }

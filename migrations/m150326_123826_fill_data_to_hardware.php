@@ -13,7 +13,7 @@ class m150326_123826_fill_data_to_hardware extends Migration{
                 'brand_id' => mt_rand(1,20),
                 'summary' => 'summary'.$i,
                 'params' => 'param'.$i,
-                'create_time' => NULL,
+                'create_time' => date('Y-m-d H:i:s'),
             ];
             $this->insert('{{%hardware}}',$data);
         }

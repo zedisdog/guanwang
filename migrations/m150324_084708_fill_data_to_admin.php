@@ -8,7 +8,7 @@ class m150324_084708_fill_data_to_admin extends Migration{
         $data = [
             'user_name' => 'admin',
             'password' => '202cb962ac59075b964b07152d234b70',
-            'create_time' => NULL,
+            'create_time' => date('Y-m-d H:i:s'),
         ];
         $this->insert('{{%admin}}',$data);
     }
